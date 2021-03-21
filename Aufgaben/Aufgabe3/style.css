@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+    background-color: black;
+}
+
+#top {
+    text-align: center;
+}
+
+#logo {
+    color: white;
+    background-color: blueviolet;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: 16px;
+}
+
+#logo-name {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+#navigation a {
+    color: grey;
+    background-color: white;
+    margin: auto;
+    float: right;
+    text-align: center;
+}
+
+#navigation a:hover {
+    color: blueviolet;
+    border-radius: 2rem;
+}
+
+#top-image {
+    padding: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#contacts {
+    text-align: center;
+    color: white;
+    font-size: 40;
+    font-weight: bold;
+    margin: auto;
+}
+
+.images-contacts {
+    /*Bilder in Mitte der Website, funzt nicht*/
+    margin: auto;
+    width: 80em;
+}
