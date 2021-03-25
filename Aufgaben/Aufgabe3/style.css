@@ -1,6 +1,9 @@
 body {
     font-family: sans-serif;
-    background-color: black;
+    background-image: url(bg.png);
+    width: 800px;
+    text-orientation: horizontal;
+    margin: auto;
 }
 
 #top {
@@ -18,37 +21,42 @@ body {
 }
 
 #logo-name {
-    color: white;
+    color: black;
     font-size: 40px;
     font-weight: bold;
     margin: 8px;
 }
 
-#navigation a {
+nav a {
     color: grey;
-    background-color: white;
-    margin: auto;
-    text-align: center;
-    float: right;
+    background-color: black;
+    margin: 5px;
+    padding: 5px;
+    text-align: right;
     text-decoration: none;
 }
 
-#navigation a:hover {
+nav a.active {
+    color: lightblue;
+}
+
+nav a:hover {
     color: blueviolet;
     border-radius: 6rem;
 }
 
+#navigation2 {}
+
 #top-image {
-    padding: 8px;
+    padding: 50px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 50%;
     width: 50%;
 }
 
 #contacts {
     text-align: center;
-    color: white;
+    color: black;
     font-size: 40;
     font-weight: bold;
     margin: auto;
@@ -60,57 +68,91 @@ body {
     display: flex;
     justify-content: space-evenly;
     width: 80em;
+    padding-top: 10%;
 }
 
-#main{
-    text-align: center;
-    color: white;
+.fa-instagram-square {
+    font-size: 5em;
+    color: hotpink;
+}
+
+.fa-spotify {
+    font-size: 5em;
+    color: green;
+}
+
+.fa-twitch {
+    font-size: 5em;
+    color: purple;
+}
+
+#main {
+    color: black;
+    background-color: rgb(201, 151, 247);
     font-size: medium;
-
+    margin-top: 50px;
+    margin-right: 60%;
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
 }
 
-#formular{
-    color: white;
+#main a:hover {
+    text-decoration: none;
+}
+
+#formular {
+    color: black;
     font-size: medium;
     text-align: left;
+    text-decoration: none;
 }
 
 input[type=text], select, textarea {
-    width: 10%; 
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: horizontal /* Allow the user to horizontally resize the textarea (not horizontally) */
-  }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
+    width: 25%;
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: horizontal/* Allow the user to horizontally resize the textarea (not horizontally) */
+}
+
+/* Submit button */
+
+input[type=submit] {
     background-color: #4CAF50;
-    color: white;
+    color: black;
     padding: 12px 20px;
     border: auto;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
+}
+
+input[type=submit]:hover {
     background-color: #45a049;
-  }
-  
-  /* Add a background color and some padding around the form */
-  .container {
+}
+
+/* background color/padding around the form */
+
+.container {
     border-radius: 5px;
     background-color: #f2f2f200;
     padding: 5px;
     margin: auto;
+}
 
-  }
+#subject {
+    text-align: left;
+    color: black;
+}
 
-  #subject{
-      text-align: left;
-  }
-
+}
