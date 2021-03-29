@@ -45,7 +45,11 @@ nav a:hover {
     border-radius: 6rem;
 }
 
-#navigation2 {}
+.fa-instagram {
+    font-size: 2em;
+    color: rgb(148, 148, 148);
+    margin-top: 5px;
+}
 
 #top-image {
     padding: 50px;
@@ -90,7 +94,7 @@ nav a:hover {
     color: black;
     background-color: rgb(201, 151, 247);
     font-size: medium;
-    margin-top: 50px;
+    margin-top: 70px;
     margin-right: 60%;
     text-decoration: none;
     margin-right: auto;
@@ -154,4 +158,3 @@ input[type=submit]:hover {
     text-align: left;
     color: black;
 }
-
