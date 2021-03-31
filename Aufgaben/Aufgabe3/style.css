@@ -127,7 +127,7 @@ input[type=text], select, textarea {
     /* top margin */
     margin-bottom: 16px;
     /* Bottom margin */
-    resize: horizontal/* Allow the user to horizontally resize the textarea (not horizontally) */
+    resize: horizontal /*Allow the user to horizontally resize the textarea*/
 }
 
 /* Submit button */
