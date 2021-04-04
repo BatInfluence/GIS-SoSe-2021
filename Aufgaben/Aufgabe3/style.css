@@ -45,6 +45,9 @@ nav a:hover {
     border-radius: 6rem;
 }
 
+nav2 a:hover{ /*Warum funktioniert das nicht?! meh*/
+    color:blueviolet;
+}
 .fa-instagram {
     font-size: 2em;
     color: rgb(148, 148, 148);
