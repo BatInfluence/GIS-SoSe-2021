@@ -6,6 +6,9 @@ body {
     margin: auto;
 }
 
+#top {
+    text-align: center;
+}
 
 #logo {
     color: white;
