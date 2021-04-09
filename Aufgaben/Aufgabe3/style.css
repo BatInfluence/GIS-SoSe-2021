@@ -28,6 +28,7 @@ body {
 }
 
 nav a {
+    float: right;
     color: grey;
     background-color: black;
     margin: 5px;
@@ -45,13 +46,17 @@ nav a:hover {
     border-radius: 6rem;
 }
 
-nav2 a:hover{ /*Warum funktioniert das nicht?! meh*/
+
+nav2 a:hover{ 
+    /*Warum funktioniert das nicht?! meh*/
     color:blueviolet;
 }
 .fa-instagram {
     font-size: 2em;
-    color: rgb(148, 148, 148);
+    color: rgb(2, 2, 2);
     margin-top: 5px;
+    margin-left: 260px;
+    margin-right: none;
 }
 
 #top-image {
@@ -70,8 +75,8 @@ nav2 a:hover{ /*Warum funktioniert das nicht?! meh*/
 }
 
 .images-contacts {
-    /*Bilder in Mitte der Website*/
-    margin: auto;
+    /*Bilder in Mitte der Website??*/
+    margin-right: 100% ;
     display: flex;
     justify-content: space-evenly;
     width: 80em;
