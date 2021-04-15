@@ -20,17 +20,58 @@ body {
     margin-top: 16px;
 }
 
+.shake :hover {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
 #logo-name {
     color: black;
     font-size: 40px;
     font-weight: bold;
     margin: 8px;
 }
-.sticky{
+
+.sticky {
     position: fixed;
     top: 0;
     width: 100%;
 }
+
 nav {
     float: right;
     position: fixed;
@@ -86,10 +127,6 @@ nav a:hover {
     width: 50%;
 }
 
-#blender {
-    width: auto;
-}
-
 @media screen {
     .flex-container {
         display: flex;
@@ -98,6 +135,7 @@ nav a:hover {
         justify-content: center;
         align-items: space-between;
         align-content: stretch;
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     }
 }
 
@@ -116,6 +154,8 @@ nav a:hover {
     top: 50%;
     left: 50%;
     margin-left: -440px;
+    margin-top: 7em;
+    margin-bottom: 5em;
 }
 
 .column {
@@ -153,7 +193,7 @@ nav a:hover {
     text-align: center;
 }
 
-#main a:hover {
+#main-ue a:hover {
     text-decoration: none;
 }
 
@@ -162,6 +202,11 @@ nav a:hover {
     font-size: medium;
     text-align: left;
     text-decoration: none;
+    margin-top: 5em;
+}
+
+#formular h1:hover {
+    color: blueviolet;
 }
 
 .container {
@@ -232,9 +277,11 @@ input[type=submit]:hover {
     color: black;
     transition: 2s;
     background-color: rgb(138, 22, 153);
+    margin-top: 3em;
 }
 
 .container2 a:hover {
     color: white;
     filter: hue-rotate();
+    border-radius: 4rem;
 }
