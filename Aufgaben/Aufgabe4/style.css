@@ -1,0 +1,484 @@
+body {
+    font-family: sans-serif;
+    background-image: url(bg.png);
+    max-width: 800px;
+    text-orientation: horizontal;
+    margin: auto;
+}
+
+#top {
+    text-align: center;
+}
+
+#logo {
+    color: white;
+    background-color: blueviolet;
+    display: inline-block;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 8px;
+    margin-top: 16px;
+}
+
+.shake :hover {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%, 40%, 60%, 80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+#logo-name {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    float: right;
+    position: fixed;
+    margin-left: 542px;
+}
+
+nav a {
+    color: grey;
+    background-color: black;
+    margin: 5px;
+    padding: 5px;
+    text-align: right;
+    text-decoration: none;
+}
+
+nav a.active {
+    color: lightblue;
+}
+
+nav a:hover {
+    color: blueviolet;
+    border-radius: 6rem;
+}
+
+.nav-po {
+    color: blueviolet;
+}
+
+.nav-ue {
+    color: blueviolet;
+}
+
+.nav-co {
+    color: blueviolet;
+}
+
+.fa-instagram {
+    font-size: 2em;
+    color: rgb(2, 2, 2);
+    margin-top: 5px;
+    margin-left: 260px;
+    margin-right: 260px;
+}
+
+.fa-instagram:hover {
+    color: blueviolet;
+}
+
+#top-image {
+    padding: 50px;
+    display: block;
+    margin-right: 50%;
+    width: 50%;
+}
+
+@media screen {
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: space-between;
+        align-content: stretch;
+    }
+}
+
+#contacts {
+    text-align: center;
+    color: black;
+    font-size: 40;
+    font-weight: bold;
+    margin: auto;
+}
+
+.images-contacts {
+    /*Bilder in Mitte der Website??*/
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -440px;
+    margin-top: 7em;
+    margin-bottom: 5em;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+.fa-instagram-square {
+    font-size: 5em;
+    color: rgb(255, 123, 105);
+    padding-right: 2em;
+    padding-left: 2em;
+}
+
+.fa-spotify {
+    font-size: 5em;
+    color: green;
+    padding-right: 2em;
+}
+
+.fa-twitch {
+    font-size: 5em;
+    color: purple;
+}
+
+#main-ue {
+    color: black;
+    background-color: rgb(201, 151, 247);
+    font-size: medium;
+    margin-top: 70px;
+    margin-right: 60%;
+    text-decoration: none;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#main-ue a:hover {
+    text-decoration: none;
+}
+
+.container3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-text {
+    font-size: 5.6rem;
+    text-align: center;
+    line-height: 1;
+    color: #b302d6;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(186, 9, 202, 0.575), 0 0 21px rgba(242, 30, 207, 0.92), 0 0 34px rgba(245, 71, 193, 0.78), 0 0 54px rgba(230, 116, 192, 0.92);
+    }
+    to {
+        text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(186, 9, 202, 0.575), 0 0 21px rgba(242, 30, 207, 0.92), 0 0 34px rgba(245, 71, 193, 0.78), 0 0 54px rgba(230, 116, 192, 0.92);
+    }
+}
+
+#formular {
+    color: black;
+    font-size: medium;
+    text-align: left;
+    text-decoration: none;
+    margin-top: 5em;
+}
+
+#formular h1:hover {
+    color: blueviolet;
+}
+
+#formular h2:hover {
+    color: blueviolet;
+}
+
+.container {
+    border-radius: 5px;
+    /*color around box*/
+    background-color: #bd000000;
+    padding: 5px;
+    margin: auto;
+}
+
+input[type=text], select, textarea {
+    width: 25%;
+    padding: 12px;
+    /* Some padding */
+    border: 1px solid #ccc;
+    /* Gray border */
+    border-radius: 4px;
+    /* Rounded borders */
+    box-sizing: border-box;
+    /* Make sure that padding and width stays in place */
+    margin-top: 6px;
+    /* top margin */
+    margin-bottom: 16px;
+    /* Bottom margin */
+    resize: horizontal/*Allow the user to horizontally resize the textarea*/
+}
+
+/* Submit button */
+
+input[type=submit] {
+    background-color: #b302d6;
+    color: black;
+    padding: 12px 20px;
+    border: auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #76038d;
+}
+
+/* background color/padding around the form */
+
+#subject {
+    text-align: left;
+    color: black;
+}
+
+/* Home-Button */
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container2 a {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 4px solid rgb(138, 22, 153);
+    margin: auto;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: black;
+    transition: 2s;
+    background-color: rgb(138, 22, 153);
+    margin-top: 3em;
+}
+
+.container2 a:hover {
+    color: white;
+    filter: hue-rotate();
+    border-radius: 4rem;
+}
+
+.cute-gif {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+#smile {
+    width: 100%;
+    height: 0;
+    padding-bottom: 10%;
+    position: right;
+    margin-left: 400px;
+    margin-bottom: 300px;
+    border: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+    /* Portfolio-Site */
+    #top {
+        margin-left: 50px;
+        margin-right: 80px;
+    }
+    #logo {
+        align-items: center;
+        padding-left: auto;
+        margin-left: auto;
+        margin-right: -300px;
+    }
+    #logo-name {
+        margin-left: 240px;
+    }
+    nav {
+        float: right;
+        position: fixed;
+        margin-left: 580px;
+    }
+    nav a {
+        color: grey;
+        background-color: black;
+        margin: 5px;
+        padding: 5px;
+        text-align: right;
+        text-decoration: none;
+    }
+    #top-image {
+        display: block;
+        width: 100%;
+        margin-left: -100px;
+        padding: 10px;
+    }
+    #navigation2 {
+        margin-left: 50px;
+    }
+    #main-po {
+        margin-left: 200px;
+    }
+    #main-po h1 {
+        margin-left: 100px;
+    }
+    #formular h2 {
+        margin-left: 300px;
+    }
+    input[type=text], select, textarea {
+        width: 50%;
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        margin-left: 260px;
+    }
+    input[type=email], select, textarea {
+        margin-left: 260px;
+    }
+    input[type=submit] {
+        margin-left: 450px;
+        padding-top: -70px;
+    }
+
+    /* ABout-Me-Site */
+    #top {
+        margin-left: 0;
+        margin-right: 300px;
+    }
+    #logo-name {
+        margin-left: 160px;
+    }
+    #navigation2 {
+        margin-left: -65px;
+    }
+    nav {
+        margin-left: 155px;
+    }
+
+    /* Contact Site */
+    #contacts {
+        margin-left: 150px;
+    }
+    .images-contacts {
+        display: flex;
+        position: relative;
+        top: 77%;
+        left: 0%;
+        margin-left: 50px;
+        margin-top: 2em;
+        margin-bottom: 5em;
+    }
+    #formular h1 {
+        margin-left: 150px;
+    }
+    .container {
+        margin-left: -210px;
+    }
+    input[type=text], select, textarea {
+        width: 50%;
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        margin-left: 260px;
+    }
+    input[type=email], select, textarea {
+        margin-left: 260px;
+    }
+    input[type=submit] {
+        margin-left: 450px;
+        padding-top: -70px;
+    }
+    #smile {
+        margin-left: 60px;
+        margin-bottom: -200px;
+    }
+    .container2 a{
+        margin-bottom: -300px;
+    }
+}
+
+@media only screen 
+and (min-device-width : 600px) 
+and (max-device-width : 1024px) {
+    /* Portfolio Site */
+    #top-image{
+        margin-left: -40px;
+    }
+
+    /* Contact-Site */
+#box{
+    position: relative;
+}
+#smile{
+    margin-top: -300px;
+    position: absolute;
+}
+}
