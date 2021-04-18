@@ -398,7 +398,6 @@ input[type=submit]:hover {
         margin-left: 450px;
         padding-top: -70px;
     }
-
     /* ABout-Me-Site */
     #top {
         margin-left: 0;
@@ -413,7 +412,6 @@ input[type=submit]:hover {
     nav {
         margin-left: 155px;
     }
-
     /* Contact Site */
     #contacts {
         margin-left: 150px;
@@ -460,25 +458,22 @@ input[type=submit]:hover {
         margin-left: 60px;
         margin-bottom: -200px;
     }
-    .container2 a{
+    .container2 a {
         margin-bottom: -300px;
     }
 }
 
-@media only screen 
-and (min-device-width : 600px) 
-and (max-device-width : 1024px) {
+@media only screen and (min-device-width: 600px) and (max-device-width: 1024px) {
     /* Portfolio Site */
-    #top-image{
+    #top-image {
         margin-left: -40px;
     }
-
     /* Contact-Site */
-#box{
-    position: relative;
-}
-#smile{
-    margin-top: -300px;
-    position: absolute;
-}
+    #box {
+        position: relative;
+    }
+    #smile {
+        margin-top: -300px;
+        position: absolute;
+    }
 }
