@@ -329,7 +329,7 @@ input[type=submit]:hover {
     border: #ffffff;
 }
 
-@media screen and (max-width: 600px) {
+@media only screen and (max-device-width: 600px) {
     /* Portfolio-Site */
     #top {
         margin-left: 50px;
@@ -342,7 +342,10 @@ input[type=submit]:hover {
         margin-right: -300px;
     }
     #logo-name {
-        margin-left: 240px;
+        margin-left: 110px;
+    }
+    #navigation {
+        margin-left: -40px;
     }
     nav {
         float: right;
@@ -360,20 +363,20 @@ input[type=submit]:hover {
     #top-image {
         display: block;
         width: 100%;
-        margin-left: -100px;
+        margin-left: -250px;
         padding: 10px;
     }
     #navigation2 {
-        margin-left: 50px;
+        margin-left: -85px;
     }
     #main-po {
-        margin-left: 200px;
+        margin-left: 0px;
     }
     #main-po h1 {
         margin-left: 100px;
     }
     #formular h2 {
-        margin-left: 300px;
+        margin-left: 140px;
     }
     input[type=text], select, textarea {
         width: 50%;
