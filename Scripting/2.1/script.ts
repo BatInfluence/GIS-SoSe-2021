@@ -38,7 +38,7 @@ function func3(): void {
 
 /*
 function multiply(): void { //5.a
-    let x: number = parseInt(prompt("Enter the first number: ")); //Warum wird das nicht angezeigt? 
+    let x: number = parseInt(prompt("Enter the first number: ")); 
     let y: number = parseInt(prompt("Enter the second number: "));
     let z: number = x * y;
     console.log(z);
@@ -109,21 +109,20 @@ function leapyears(): void { //f
 }
 leapyears();
 */
-/*
-function zeichen(): void { //6.a //funktioniert noch nicht
-    let z: String = "";
-    for (let zeile: number = 0; zeile < 7; zeile++) {
 
-        for (let spalte: number = 0; spalte <= 7; spalte++) {
+function zeichen(): void { //6.a //funktioniert noch nicht
+    let z: String = "#";
+    for (let zeile: number = 1; zeile <= 7; zeile++) {
+        for (let ausgabe: number = 0; ausgabe <= (zeile - 1); ausgabe++) {
             z += "#";
         }
         z += "\n";
     }
     console.log(z);
-
+    console.log("Warum funktioniert das nicht richtig??!");
 }
 zeichen();
-*/
+
 /*
 function fizzbuzz(): void { //b
     for (let index: number = 0; index <= 100; index++) {
