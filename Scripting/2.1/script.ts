@@ -38,28 +38,27 @@ function func3(): void {
 
 /*
 function multiply(): void { //5.a
-    let x: number = parseInt(prompt("Enter the first number: ")); 
-    let y: number = parseInt(prompt("Enter the second number: "));
+    let x: number = parseInt("Enter the first number: "); 
+    let y: number = parseInt("Enter the second number: ");
     let z: number = x * y;
     console.log(z);
 }
 multiply();
 */
-
-function max(): number { //b
-    let x: number = parseInt(prompt("Enter the first number: "));
-    let y: number = parseInt(prompt("Enter the second number: "));
+/*
+function max(): void { //b
+    let x: number = parseInt("Enter the first number: ");  
+    let y: number = parseInt("Enter the second number: ");
 
     if (x > y) {
-        console.log (x);
+        console.log(x);
     }
     if (y > x) {
-        console.log (y);
+        console.log(y);
     }
-    return max();
 }
 max();
-
+*/
 /*
 function c(): void { //c
     let a: number = 1;
@@ -81,13 +80,13 @@ d();
 */
 
 function factorial(): number { //e
-    let n: number = parseInt(prompt("Enter number: "));
+    let n: number = parseInt("Enter number: ");
     let fakultaet: number = 1;
     for (let index: number = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
         if (n < 1) {
             return (1);
         }
-        console.log(fakultaet = fakultaet * index);
+        console.log (fakultaet = fakultaet * index);
     }
     return fakultaet;
 }
@@ -165,7 +164,7 @@ schachbrett();
 /*
 function schachbrettZwei(): void {
 
-    let num: number = parseInt(prompt("Enter the the height: "));
+    let num: number = parseInt("Enter the the height: ");
     let board: String = "";
     for (let zeilen: number = 1; zeilen <= num; zeilen++) {
         for (let character: number = 1; character <= num; character++) {
@@ -186,7 +185,7 @@ namespace Aufgabe2_1 {
 
     function min(): number {
         //Wie kann ich mehrere Zahlen eintippen ?
-        let num: number = parseInt(prompt("Enter numbers: "));
+        let num: number = parseInt("Enter numbers: ");
 
         return (Math.min(num));
     }
@@ -194,7 +193,7 @@ namespace Aufgabe2_1 {
 
 
     function isEven(): boolean {
-        let x: number = parseInt(prompt("Enter number: "));
+        let x: number = parseInt("Enter number: ");
         if (x % 2 == 0) {
             return true;
         } else {

@@ -37,25 +37,27 @@ function func3(): void {
 */
 /*
 function multiply(): void { //5.a
-    let x: number = parseInt(prompt("Enter the first number: "));
-    let y: number = parseInt(prompt("Enter the second number: "));
+    let x: number = parseInt("Enter the first number: ");
+    let y: number = parseInt("Enter the second number: ");
     let z: number = x * y;
     console.log(z);
 }
 multiply();
 */
-function max() {
-    let x = parseInt(prompt("Enter the first number: "));
-    let y = parseInt(prompt("Enter the second number: "));
+/*
+function max(): void { //b
+    let x: number = parseInt("Enter the first number: ");
+    let y: number = parseInt("Enter the second number: ");
+
     if (x > y) {
         console.log(x);
     }
     if (y > x) {
         console.log(y);
     }
-    return max();
 }
 max();
+*/
 /*
 function c(): void { //c
     let a: number = 1;
@@ -76,7 +78,7 @@ function d(): void { //d
 d();
 */
 function factorial() {
-    let n = parseInt(prompt("Enter number: "));
+    let n = parseInt("Enter number: ");
     let fakultaet = 1;
     for (let index = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
         if (n < 1) {
@@ -154,7 +156,7 @@ schachbrett();
 /*
 function schachbrettZwei(): void {
 
-    let num: number = parseInt(prompt("Enter the the height: "));
+    let num: number = parseInt("Enter the the height: ");
     let board: String = "";
     for (let zeilen: number = 1; zeilen <= num; zeilen++) {
         for (let character: number = 1; character <= num; character++) {
@@ -174,12 +176,12 @@ var Aufgabe2_1;
 (function (Aufgabe2_1) {
     function min() {
         //Wie kann ich mehrere Zahlen eintippen ?
-        let num = parseInt(prompt("Enter numbers: "));
+        let num = parseInt("Enter numbers: ");
         return (Math.min(num));
     }
     min();
     function isEven() {
-        let x = parseInt(prompt("Enter number: "));
+        let x = parseInt("Enter number: ");
         if (x % 2 == 0) {
             return true;
         }
