@@ -111,7 +111,7 @@ leapyears();
 */
 
 function zeichen(): void { //6.a //funktioniert noch nicht
-    let z: String = "#";
+    let z: String = "";
     for (let zeile: number = 1; zeile <= 7; zeile++) {
         for (let ausgabe: number = 0; ausgabe <= (zeile - 1); ausgabe++) {
             z += "#";
@@ -119,7 +119,7 @@ function zeichen(): void { //6.a //funktioniert noch nicht
         z += "\n";
     }
     console.log(z);
-    console.log("Warum funktioniert das nicht richtig??!");
+    console.log("gefixt");
 }
 zeichen();
 
@@ -175,6 +175,80 @@ function schachbrettZwei(): void {
     console.log(board);
 }
 schachbrettZwei();
+*/
+
+/*namespace Aufgabe2_1 {
+
+    function min(): number {
+        //Wie kann ich mehrere Zahlen eintippen ?
+        let num: number = parseInt(prompt("Enter numbers: "));
+
+        return (Math.min(num));
+    }
+    min();
+
+
+    function isEven(): boolean {
+        let x: number = parseInt(prompt("Enter number: "));
+        if (x % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+        if (x == NaN) {
+            return x == NaN - 2;
+        }
+    }
+    isEven();
+
+
+    interface Student {
+        name: string;
+        vorname: string;
+        alter: number;
+        studiengang: string;
+    }
+
+    let s1: Student = {
+        name: "Paul-Franz",
+        vorname: "Leon",
+        alter: 20,
+        studiengang: "Ingenieurswirtschaft"
+    };
+    console.log(s1);
+
+    let s2: Student = {
+        name: "Wasser",
+        vorname: "Mariana",
+        alter: 19,
+        studiengang: "Gesundheitswissenschaften"
+    };
+    console.log(s2);
+
+    let s3: Student = {
+        name: "Kroemer",
+        vorname: "Jakob",
+        alter: 24,
+        studiengang: "Wirtschaftsinformatik"
+    };
+    console.log(s3);
+
+    let studentArray: Student[] = [];
+    studentArray.push(s1);
+    console.log(s1.name);
+
+    studentArray.push(s2);
+    console.log(s2.studiengang);
+
+    studentArray.push(s3);
+    console.log(s3.alter);
+
+    studentArray.push({ name: "Mustermann", vorname: "Max", alter: 21, studiengang: "Psychologie" });
+
+    function showInfo(): String {
+
+    }
+
 */
 
 
