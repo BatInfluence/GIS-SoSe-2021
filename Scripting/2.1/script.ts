@@ -45,20 +45,21 @@ function multiply(): void { //5.a
 }
 multiply();
 */
-/*
-function max(): void { //b
-    let x: number = parseInt(prompt("Enter the first number: "));  
+
+function max(): number { //b
+    let x: number = parseInt(prompt("Enter the first number: "));
     let y: number = parseInt(prompt("Enter the second number: "));
 
     if (x > y) {
-        console.log(x);
+        console.log (x);
     }
     if (y > x) {
-        console.log(y);
+        console.log (y);
     }
+    return max();
 }
 max();
-*/
+
 /*
 function c(): void { //c
     let a: number = 1;
@@ -78,19 +79,20 @@ function d(): void { //d
 }
 d();
 */
-/*
-function factorial(): void { //e
+
+function factorial(): number { //e
     let n: number = parseInt(prompt("Enter number: "));
     let fakultaet: number = 1;
     for (let index: number = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
         if (n < 1) {
-            console.log(1);
+            return (1);
         }
         console.log(fakultaet = fakultaet * index);
     }
+    return fakultaet;
 }
 factorial();
-*/
+
 /*
 function leapyears(): void { //f
 
@@ -123,23 +125,26 @@ function zeichen(): void { //6.a //funktioniert noch nicht
 }
 zeichen();
 
-/*
+
 function fizzbuzz(): void { //b
     for (let index: number = 0; index <= 100; index++) {
+        let fizzbuzz: boolean = false;
+        if (index % 3 == 0 && index % 5 == 0) { //c
+            console.log("FizzBuzz");
+            fizzbuzz = true;
+        }
         if (index % 3 == 0) {
             console.log("Fizz");
         }
-        if (index % 5 == 0 && index ! % 3 == 0) {
+        if (index % 5 == 0 && index! % 3 == 0) {
             console.log("Buzz");
         }
-        if (index % 3 == 0 && index % 5 == 0) { //c
-            console.log("FizzBuzz");
-        }
+
         console.log(index);
     }
 }
 fizzbuzz(); //Methode aufrufen nicht vergessen
-*/
+
 /*
 function schachbrett(): void { //d
     let board: String = "";
@@ -177,7 +182,7 @@ function schachbrettZwei(): void {
 schachbrettZwei();
 */
 
-/*namespace Aufgabe2_1 {
+namespace Aufgabe2_1 {
 
     function min(): number {
         //Wie kann ich mehrere Zahlen eintippen ?
@@ -247,8 +252,8 @@ schachbrettZwei();
 
     function showInfo(): String {
 
+        return null;
     }
 
-*/
 
-
+}
