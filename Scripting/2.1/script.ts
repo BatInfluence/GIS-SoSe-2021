@@ -78,20 +78,20 @@ function d(): void { //d
 }
 d();
 */
-
-function factorial(): number { //e
-    let n: number = parseInt("Enter number: ");
+/*
+function factorial( n: number): number { //e
+    
     let fakultaet: number = 1;
     for (let index: number = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
         if (n < 1) {
-            return (1);
+            return (1); 
         }
-        console.log (fakultaet = fakultaet * index);
+        fakultaet = fakultaet * index;
     }
     return fakultaet;
 }
-factorial();
-
+console.log(factorial(4));
+*/
 /*
 function leapyears(): void { //f
 
@@ -110,7 +110,7 @@ function leapyears(): void { //f
 }
 leapyears();
 */
-
+/*
 function zeichen(): void { //6.a //funktioniert noch nicht
     let z: String = "";
     for (let zeile: number = 1; zeile <= 7; zeile++) {
@@ -138,12 +138,11 @@ function fizzbuzz(): void { //b
         if (index % 5 == 0 && index! % 3 == 0) {
             console.log("Buzz");
         }
-
         console.log(index);
     }
 }
 fizzbuzz(); //Methode aufrufen nicht vergessen
-
+*/
 /*
 function schachbrett(): void { //d
     let board: String = "";
@@ -181,15 +180,14 @@ function schachbrettZwei(): void {
 schachbrettZwei();
 */
 
-namespace Aufgabe2_1 {
+namespace Aufgabe2_2 {
+    let num: number[] = [123, 45, 23, 12];
 
-    function min(): number {
-        //Wie kann ich mehrere Zahlen eintippen ?
-        let num: number = parseInt("Enter numbers: ");
+    function min(num: number[]) {
+        let smallNum: number = Math.min(...num);
 
-        return (Math.min(num));
+        return (smallNum);
     }
-    min();
 
 
     function isEven(): boolean {
@@ -199,20 +197,34 @@ namespace Aufgabe2_1 {
         } else {
             return false;
         }
-        if (x == NaN) {
-            return x == NaN - 2;
-        }
     }
     isEven();
 
 
-    interface Student {
-        name: string;
+    class Student {
+        /*interface Student {
+            name: string;
+            vorname: string;
+            alter: number;
+            studiengang: string;
+        }
+    */
         vorname: string;
+        name: string;
         alter: number;
         studiengang: string;
-    }
 
+        constructor(vorname: string, name: string, alter: number, studiengang: string) {
+            this.name = name;
+            this.vorname = vorname;
+            this.alter = alter;
+            this.studiengang = studiengang;
+        }
+
+        public showInfo(): void {
+            console.log("Name: " + this.name, "Vorname: " + this.vorname, "Alter: " + this.alter, "Studiengang: " + this.studiengang);
+        }
+    }
     let s1: Student = {
         name: "Paul-Franz",
         vorname: "Leon",
@@ -249,10 +261,147 @@ namespace Aufgabe2_1 {
 
     studentArray.push({ name: "Mustermann", vorname: "Max", alter: 21, studiengang: "Psychologie" });
 
-    function showInfo(): String {
+    s1.showInfo();
+    s2.showInfo();
+    s3.showInfo();
 
-        return null;
+    console.log(" Irgendwas ist schief gelaufen, aber ich weiß nicht was -.-");
+
+
+    function backwards(arr: number[]) {
+        let arrnew: number[] = [];
+
+        for (let i: number = arr.length - 1; i > 0; --i) {
+            arrnew.push(arr[i]);
+        }
+        return arrnew;
     }
 
 
-}
+    function join(x: number[], y: number[], ...[]) {
+        for (let index: number = 0; index < y.length; index++) {
+            x.push(y[index]);
+            x.push(...[index]);
+        }
+        return x;
+    }
+
+
+    function split(arr1: number[], index: number, indextwo: number): number[] {
+        let saveArr: number[] = [];
+
+        if (index < 0 || indextwo > arr1.length - 1) {
+            console.log("Miau!");
+        } else {
+            for (let i = index; i < indextwo; i++) {
+                saveArr.push(arr1[i]);
+            }
+        }
+        return saveArr;
+    }
+
+
+    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht??
+    let context: CanvasRenderingContext2D = canvas.getContext("2d");
+
+    context.beginPath(); //sky
+    context.rect(0, 0, 500, 400); // (x, y, width, height)
+    context.fillStyle = "rgb(175,238,238)";
+    context.fill();
+
+    context.beginPath(); //cloud1
+    context.rect(450, 100, 100, 50); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //cloud2
+    context.rect(350, 120, 130, 70); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //cloud3
+    context.rect(150, 120, 130, 20); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //cloud4
+    context.rect(150, 70, 80, 80); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //cloud5
+    context.rect(100, 90, 70, 80); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //cloud6
+    context.rect(80, 100, 70, 40); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+
+    context.beginPath(); //grass
+    context.rect(0, 300, 500, 100); // (x, y, width, height)
+    context.fillStyle = "green";
+    context.fill();
+
+    context.beginPath(); //treestomp
+    context.rect(430, 160, 20, 140);
+    context.fillStyle = "brown";
+    context.fill();
+
+    //treeleaves
+    var centerX: number = canvas.width / 2;
+    var centerY: number = canvas.height / 2;
+    var radius: number = 60;
+    context.beginPath();
+    context.arc(440, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "green";
+    context.fill();
+
+    context.beginPath(); //roof
+    var centerX: number = canvas.width / 2;
+    var centerY: number = canvas.height / 2;
+    var radius: number = 50;
+    context.beginPath();
+    context.arc(100, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "blue";
+    context.fill();
+
+    context.beginPath(); //house
+    context.rect(50, 200, 100, 100); // (x, y, width, height)
+    context.fillStyle = "red";
+    context.fill();
+
+
+    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht?
+    let context: CanvasRenderingContext2D = canvas.getContext("2d");
+
+    class Rect {
+        randomX: number;
+        randomY: number;
+        randomWidth: number;
+        randomHeight: number;
+
+        constructor() {
+            this.randomX = Math.random() * 100;
+            this.randomY = Math.random() * 100;
+            this.randomWidth = Math.random() * 100;
+            this.randomHeight = Math.random() * 100;
+        }
+
+        public drawRect(): void {
+            context.beginPath();
+            context.fillRect(this.randomX, this.randomY, this.randomWidth, this.randomHeight);
+        }
+
+        public drawRandom(a: number): void {
+            let sammlung: Rect[] = [];
+            for (let u = 0; u <= a; u++) {
+                sammlung.push(new Rect());
+            }
+            for (let v = 0; v < sammlung.length - 1; v++) {
+                sammlung[v].drawRect();
+            }
+        }
+    }
+

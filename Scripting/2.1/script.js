@@ -77,18 +77,20 @@ function d(): void { //d
 }
 d();
 */
-function factorial() {
-    let n = parseInt("Enter number: ");
-    let fakultaet = 1;
-    for (let index = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
+/*
+function factorial( n: number): number { //e
+    
+    let fakultaet: number = 1;
+    for (let index: number = 1; index <= n; index++) { //nochmal debuggen und überprüfen, ob for-Schleife stimmmt.
         if (n < 1) {
             return (1);
         }
-        console.log(fakultaet = fakultaet * index);
+        fakultaet = fakultaet * index;
     }
     return fakultaet;
 }
-factorial();
+console.log(factorial(4));
+*/
 /*
 function leapyears(): void { //f
 
@@ -107,10 +109,11 @@ function leapyears(): void { //f
 }
 leapyears();
 */
-function zeichen() {
-    let z = "";
-    for (let zeile = 1; zeile <= 7; zeile++) {
-        for (let ausgabe = 0; ausgabe <= (zeile - 1); ausgabe++) {
+/*
+function zeichen(): void { //6.a //funktioniert noch nicht
+    let z: String = "";
+    for (let zeile: number = 1; zeile <= 7; zeile++) {
+        for (let ausgabe: number = 0; ausgabe <= (zeile - 1); ausgabe++) {
             z += "#";
         }
         z += "\n";
@@ -119,9 +122,11 @@ function zeichen() {
     console.log("gefixt");
 }
 zeichen();
-function fizzbuzz() {
-    for (let index = 0; index <= 100; index++) {
-        let fizzbuzz = false;
+
+
+function fizzbuzz(): void { //b
+    for (let index: number = 0; index <= 100; index++) {
+        let fizzbuzz: boolean = false;
         if (index % 3 == 0 && index % 5 == 0) { //c
             console.log("FizzBuzz");
             fizzbuzz = true;
@@ -129,13 +134,14 @@ function fizzbuzz() {
         if (index % 3 == 0) {
             console.log("Fizz");
         }
-        if (index % 5 == 0 && index % 3 == 0) {
+        if (index % 5 == 0 && index! % 3 == 0) {
             console.log("Buzz");
         }
         console.log(index);
     }
 }
 fizzbuzz(); //Methode aufrufen nicht vergessen
+*/
 /*
 function schachbrett(): void { //d
     let board: String = "";
@@ -172,14 +178,13 @@ function schachbrettZwei(): void {
 }
 schachbrettZwei();
 */
-var Aufgabe2_1;
-(function (Aufgabe2_1) {
-    function min() {
-        //Wie kann ich mehrere Zahlen eintippen ?
-        let num = parseInt("Enter numbers: ");
-        return (Math.min(num));
+var Aufgabe2_2;
+(function (Aufgabe2_2) {
+    let num = [123, 45, 23, 12];
+    function min(num) {
+        let smallNum = Math.min(...num);
+        return (smallNum);
     }
-    min();
     function isEven() {
         let x = parseInt("Enter number: ");
         if (x % 2 == 0) {
@@ -188,11 +193,19 @@ var Aufgabe2_1;
         else {
             return false;
         }
-        if (x == NaN) {
-            return x == NaN - 2;
-        }
     }
     isEven();
+    class Student {
+        constructor(vorname, name, alter, studiengang) {
+            this.name = name;
+            this.vorname = vorname;
+            this.alter = alter;
+            this.studiengang = studiengang;
+        }
+        showInfo() {
+            console.log("Name: " + this.name, "Vorname: " + this.vorname, "Alter: " + this.alter, "Studiengang: " + this.studiengang);
+        }
+    }
     let s1 = {
         name: "Paul-Franz",
         vorname: "Leon",
@@ -222,8 +235,116 @@ var Aufgabe2_1;
     studentArray.push(s3);
     console.log(s3.alter);
     studentArray.push({ name: "Mustermann", vorname: "Max", alter: 21, studiengang: "Psychologie" });
-    function showInfo() {
-        return null;
+    s1.showInfo();
+    s2.showInfo();
+    s3.showInfo();
+    console.log(" Irgendwas ist schief gelaufen, aber ich weiß nicht was -.-");
+    function backwards(arr) {
+        let arrnew = [];
+        for (let i = arr.length - 1; i > 0; --i) {
+            arrnew.push(arr[i]);
+        }
+        return arrnew;
     }
-})(Aufgabe2_1 || (Aufgabe2_1 = {}));
+    function join(x, y, ...[]) {
+        for (let index = 0; index < y.length; index++) {
+            x.push(y[index]);
+            x.push(...[index]);
+        }
+        return x;
+    }
+    function split(arr1, index, indextwo) {
+        let saveArr = [];
+        if (index < 0 || indextwo > arr1.length - 1) {
+            console.log("Miau!");
+        }
+        else {
+            for (let i = index; i < indextwo; i++) {
+                saveArr.push(arr1[i]);
+            }
+        }
+        return saveArr;
+    }
+    let canvas = document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht??
+    let context = canvas.getContext("2d");
+    context.beginPath(); //sky
+    context.rect(0, 0, 500, 400); // (x, y, width, height)
+    context.fillStyle = "rgb(175,238,238)";
+    context.fill();
+    context.beginPath(); //cloud1
+    context.rect(450, 100, 100, 50); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //cloud2
+    context.rect(350, 120, 130, 70); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //cloud3
+    context.rect(150, 120, 130, 20); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //cloud4
+    context.rect(150, 70, 80, 80); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //cloud5
+    context.rect(100, 90, 70, 80); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //cloud6
+    context.rect(80, 100, 70, 40); // (x, y, width, height)
+    context.fillStyle = "rgb(248,248,255)";
+    context.fill();
+    context.beginPath(); //grass
+    context.rect(0, 300, 500, 100); // (x, y, width, height)
+    context.fillStyle = "green";
+    context.fill();
+    context.beginPath(); //treestomp
+    context.rect(430, 160, 20, 140);
+    context.fillStyle = "brown";
+    context.fill();
+    //treeleaves
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 60;
+    context.beginPath();
+    context.arc(440, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "green";
+    context.fill();
+    context.beginPath(); //roof
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+    var radius = 50;
+    context.beginPath();
+    context.arc(100, centerY, radius, 0, 2 * Math.PI, false);
+    context.fillStyle = "blue";
+    context.fill();
+    context.beginPath(); //house
+    context.rect(50, 200, 100, 100); // (x, y, width, height)
+    context.fillStyle = "red";
+    context.fill();
+    let canvas = document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht?
+    let context = canvas.getContext("2d");
+    class Rect {
+        constructor() {
+            this.randomX = Math.random() * 100;
+            this.randomY = Math.random() * 100;
+            this.randomWidth = Math.random() * 100;
+            this.randomHeight = Math.random() * 100;
+        }
+        drawRect() {
+            context.beginPath();
+            context.fillRect(this.randomX, this.randomY, this.randomWidth, this.randomHeight);
+        }
+        drawRandom(a) {
+            let sammlung = [];
+            for (let u = 0; u <= a; u++) {
+                sammlung.push(new Rect());
+            }
+            for (let v = 0; v < sammlung.length - 1; v++) {
+                sammlung[v].drawRect();
+            }
+        }
+    }
+})(Aufgabe2_2 || (Aufgabe2_2 = {}));
 //# sourceMappingURL=script.js.map
