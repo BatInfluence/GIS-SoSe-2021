@@ -181,34 +181,35 @@ schachbrettZwei();
 */
 
 namespace Aufgabe2_2 {
-    let num: number[] = [123, 45, 23, 12];
 
-    function min(num: number[]) {
-        let smallNum: number = Math.min(...num);
-
-        return (smallNum);
-    }
-
-
-    function isEven(): boolean {
-        let x: number = parseInt("Enter number: ");
-        if (x % 2 == 0) {
-            return true;
-        } else {
-            return false;
+    function min(..._num: number[]): number {
+        let min: number = Infinity;
+        for (let i: number = 0; i < _num.length; i++) {
+            if (min > _num[i]) {
+                min = _num[i];
+            }
         }
+        return min;
     }
-    isEven();
+    min(123, 45, 23, 12);
+
+
+    function isEven(_input: number): boolean {
+        if (_input == 0) return true;
+        if (_input == 1) return false;
+
+        let result: boolean;
+        if (_input > 0)
+            result = isEven(_input - 2);
+        if (_input < 0)
+            result = isEven(_input + 2);
+        return result;
+    }
+    isEven(4);
 
 
     class Student {
-        /*interface Student {
-            name: string;
-            vorname: string;
-            alter: number;
-            studiengang: string;
-        }
-    */
+
         vorname: string;
         name: string;
         alter: number;
@@ -225,28 +226,16 @@ namespace Aufgabe2_2 {
             console.log("Name: " + this.name, "Vorname: " + this.vorname, "Alter: " + this.alter, "Studiengang: " + this.studiengang);
         }
     }
-    let s1: Student = {
-        name: "Paul-Franz",
-        vorname: "Leon",
-        alter: 20,
-        studiengang: "Ingenieurswirtschaft"
-    };
+    let s1: Student = new Student("Paul-Franz", "Leon", 20, "Ingenierswirtschaft");
+        
     console.log(s1);
 
-    let s2: Student = {
-        name: "Wasser",
-        vorname: "Mariana",
-        alter: 19,
-        studiengang: "Gesundheitswissenschaften"
-    };
+    let s2: Student = new Student("Wasser", "Mariana", 19, "Gesundheitswissenschaften");
+       
     console.log(s2);
 
-    let s3: Student = {
-        name: "Kroemer",
-        vorname: "Jakob",
-        alter: 24,
-        studiengang: "Wirtschaftsinformatik"
-    };
+    let s3: Student = new Student("Kroemer", "Jakob", 24, "WIrtschaftsinformatik");
+       
     console.log(s3);
 
     let studentArray: Student[] = [];
@@ -259,49 +248,55 @@ namespace Aufgabe2_2 {
     studentArray.push(s3);
     console.log(s3.alter);
 
-    studentArray.push({ name: "Mustermann", vorname: "Max", alter: 21, studiengang: "Psychologie" });
+    studentArray.push(new Student("Mustermann", "Max", 21, "Psychologie"));
 
     s1.showInfo();
     s2.showInfo();
     s3.showInfo();
 
-    console.log(" Irgendwas ist schief gelaufen, aber ich weiß nicht was -.-");
+    
 
 
-    function backwards(arr: number[]) {
+    function backwards(_arr: number[]): number[] {
         let arrnew: number[] = [];
 
-        for (let i: number = arr.length - 1; i > 0; --i) {
-            arrnew.push(arr[i]);
+        for (let i: number = _arr.length - 1; i > 0; --i) {
+            arrnew.push(_arr[i]);
         }
         return arrnew;
     }
+    backwards([20]);
 
 
-    function join(x: number[], y: number[], ...[]) {
-        for (let index: number = 0; index < y.length; index++) {
-            x.push(y[index]);
-            x.push(...[index]);
+    function join(_a: number[], _b: number[]): number[] {
+        let joined: number[] = [];
+        for(let i: number = 0; i < _a.length; i++) {
+            joined.push(_a[i]);
         }
-        return x;
+        for(let i: number = 0; i < _b.length; i++) {
+            joined.push(_b[i]);
+        }
+        return joined;
     }
+    join([10, 20], [20, 49]);
 
 
-    function split(arr1: number[], index: number, indextwo: number): number[] {
+    function split(_arr1: number[], _index: number, _indextwo: number): number[] {
         let saveArr: number[] = [];
 
-        if (index < 0 || indextwo > arr1.length - 1) {
+        if (_index < 0 || _indextwo > _arr1.length - 1) {
             console.log("Miau!");
         } else {
-            for (let i = index; i < indextwo; i++) {
-                saveArr.push(arr1[i]);
+            for (let i = _index; i < _indextwo; i++) {
+                saveArr.push(_arr1[i]);
             }
         }
         return saveArr;
     }
+    split([12, 23, 79], 12, 42);
 
 
-    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht??
+    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
 
     context.beginPath(); //sky
@@ -373,9 +368,6 @@ namespace Aufgabe2_2 {
     context.fill();
 
 
-    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht?
-    let context: CanvasRenderingContext2D = canvas.getContext("2d");
-
     class Rect {
         randomX: number;
         randomY: number;
@@ -405,3 +397,8 @@ namespace Aufgabe2_2 {
         }
     }
 }
+
+
+
+
+

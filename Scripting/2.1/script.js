@@ -180,21 +180,29 @@ schachbrettZwei();
 */
 var Aufgabe2_2;
 (function (Aufgabe2_2) {
-    let num = [123, 45, 23, 12];
-    function min(num) {
-        let smallNum = Math.min(...num);
-        return (smallNum);
+    function min(..._inputs) {
+        let min = Infinity;
+        for (let i = 0; i < _inputs.length; i++) {
+            if (min > _inputs[i]) {
+                min = _inputs[i];
+            }
+        }
+        return min;
     }
-    function isEven() {
-        let x = parseInt("Enter number: ");
-        if (x % 2 == 0) {
+    min(123, 45, 23, 12);
+    function isEven(_input) {
+        if (_input == 0)
             return true;
-        }
-        else {
+        if (_input == 1)
             return false;
-        }
+        let result;
+        if (_input > 0)
+            result = isEven(_input - 2);
+        if (_input < 0)
+            result = isEven(_input + 2);
+        return result;
     }
-    isEven();
+    isEven(4);
     class Student {
         constructor(vorname, name, alter, studiengang) {
             this.name = name;
@@ -239,33 +247,36 @@ var Aufgabe2_2;
     s2.showInfo();
     s3.showInfo();
     console.log(" Irgendwas ist schief gelaufen, aber ich weiß nicht was -.-");
-    function backwards(arr) {
+    function backwards(_arr) {
         let arrnew = [];
-        for (let i = arr.length - 1; i > 0; --i) {
-            arrnew.push(arr[i]);
+        for (let i = _arr.length - 1; i > 0; --i) {
+            arrnew.push(_arr[i]);
         }
         return arrnew;
     }
-    function join(x, y, ...[]) {
-        for (let index = 0; index < y.length; index++) {
-            x.push(y[index]);
-            x.push(...[index]);
+    backwards([20]);
+    function join(_x, _y, ..._rest) {
+        for (let index = 0; index < _y.length; index++) {
+            _x.push(_y[index]);
+            _x.push(_rest[index]);
         }
-        return x;
+        return _x;
     }
-    function split(arr1, index, indextwo) {
+    join([10, 20], [20, 49]);
+    function split(_arr1, _index, _indextwo) {
         let saveArr = [];
-        if (index < 0 || indextwo > arr1.length - 1) {
+        if (_index < 0 || _indextwo > _arr1.length - 1) {
             console.log("Miau!");
         }
         else {
-            for (let i = index; i < indextwo; i++) {
-                saveArr.push(arr1[i]);
+            for (let i = _index; i < _indextwo; i++) {
+                saveArr.push(_arr1[i]);
             }
         }
         return saveArr;
     }
-    let canvas = document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht??
+    split([12, 23, 79], 12, 42);
+    let canvas = document.getElementById("myFirstCanvas");
     let context = canvas.getContext("2d");
     context.beginPath(); //sky
     context.rect(0, 0, 500, 400); // (x, y, width, height)
@@ -323,8 +334,6 @@ var Aufgabe2_2;
     context.rect(50, 200, 100, 100); // (x, y, width, height)
     context.fillStyle = "red";
     context.fill();
-    let canvas = document.getElementById("myFirstCanvas"); //Warum funktioniert das nicht?
-    let context = canvas.getContext("2d");
     class Rect {
         constructor() {
             this.randomX = Math.random() * 100;
