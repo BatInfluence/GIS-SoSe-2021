@@ -71,25 +71,23 @@ namespace Aufgabe3 {
             }
         }
 
-
-
     }
     clickButton();
 
     function choseButtonSchwach(klick: MouseEvent): void {
 
         let img: HTMLImageElement = <HTMLImageElement>klick.currentTarget;
-        console.log(img.src);
+        console.log("Schwacher Lebenstrank");
     }
 
     function choseButtonMittel(klick: MouseEvent): void {
         let img: HTMLImageElement = <HTMLImageElement>klick.currentTarget;
-        console.log(img.src);
+        console.log("Mittlerer Lebenstrank");
     }
 
     function choseButtonStark(klick: MouseEvent): void {
         let img: HTMLImageElement = <HTMLImageElement>klick.currentTarget;
-        console.log(img.src);
+        console.log("Starker Lebenstrank");
     }
 }
 

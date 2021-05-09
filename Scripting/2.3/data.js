@@ -60,15 +60,15 @@ var Aufgabe3;
     clickButton();
     function choseButtonSchwach(klick) {
         let img = klick.currentTarget;
-        console.log(img.src);
+        console.log("Schwacher Lebenstrank");
     }
     function choseButtonMittel(klick) {
         let img = klick.currentTarget;
-        console.log(img.src);
+        console.log("Mittlerer Lebenstrank");
     }
     function choseButtonStark(klick) {
         let img = klick.currentTarget;
-        console.log(img.src);
+        console.log("Starker Lebenstrank");
     }
 })(Aufgabe3 || (Aufgabe3 = {}));
 //# sourceMappingURL=data.js.map
