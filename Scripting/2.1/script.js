@@ -180,11 +180,11 @@ schachbrettZwei();
 */
 var Aufgabe2_2;
 (function (Aufgabe2_2) {
-    function min(..._inputs) {
+    function min(..._num) {
         let min = Infinity;
-        for (let i = 0; i < _inputs.length; i++) {
-            if (min > _inputs[i]) {
-                min = _inputs[i];
+        for (let i = 0; i < _num.length; i++) {
+            if (min > _num[i]) {
+                min = _num[i];
             }
         }
         return min;
@@ -214,26 +214,11 @@ var Aufgabe2_2;
             console.log("Name: " + this.name, "Vorname: " + this.vorname, "Alter: " + this.alter, "Studiengang: " + this.studiengang);
         }
     }
-    let s1 = {
-        name: "Paul-Franz",
-        vorname: "Leon",
-        alter: 20,
-        studiengang: "Ingenieurswirtschaft"
-    };
+    let s1 = new Student("Paul-Franz", "Leon", 20, "Ingenierswirtschaft");
     console.log(s1);
-    let s2 = {
-        name: "Wasser",
-        vorname: "Mariana",
-        alter: 19,
-        studiengang: "Gesundheitswissenschaften"
-    };
+    let s2 = new Student("Wasser", "Mariana", 19, "Gesundheitswissenschaften");
     console.log(s2);
-    let s3 = {
-        name: "Kroemer",
-        vorname: "Jakob",
-        alter: 24,
-        studiengang: "Wirtschaftsinformatik"
-    };
+    let s3 = new Student("Kroemer", "Jakob", 24, "WIrtschaftsinformatik");
     console.log(s3);
     let studentArray = [];
     studentArray.push(s1);
@@ -242,11 +227,12 @@ var Aufgabe2_2;
     console.log(s2.studiengang);
     studentArray.push(s3);
     console.log(s3.alter);
-    studentArray.push({ name: "Mustermann", vorname: "Max", alter: 21, studiengang: "Psychologie" });
-    s1.showInfo();
-    s2.showInfo();
-    s3.showInfo();
-    console.log(" Irgendwas ist schief gelaufen, aber ich weiß nicht was -.-");
+    studentArray.push(new Student("Mustermann", "Max", 21, "Psychologie"));
+    /*
+        s1.showInfo();
+        s2.showInfo();
+        s3.showInfo();
+    */
     function backwards(_arr) {
         let arrnew = [];
         for (let i = _arr.length - 1; i > 0; --i) {
@@ -255,12 +241,15 @@ var Aufgabe2_2;
         return arrnew;
     }
     backwards([20]);
-    function join(_x, _y, ..._rest) {
-        for (let index = 0; index < _y.length; index++) {
-            _x.push(_y[index]);
-            _x.push(_rest[index]);
+    function join(_a, _b) {
+        let joined = [];
+        for (let i = 0; i < _a.length; i++) {
+            joined.push(_a[i]);
         }
-        return _x;
+        for (let i = 0; i < _b.length; i++) {
+            joined.push(_b[i]);
+        }
+        return joined;
     }
     join([10, 20], [20, 49]);
     function split(_arr1, _index, _indextwo) {
@@ -315,7 +304,6 @@ var Aufgabe2_2;
     context.fillStyle = "brown";
     context.fill();
     //treeleaves
-    var centerX = canvas.width / 2;
     var centerY = canvas.height / 2;
     var radius = 60;
     context.beginPath();
@@ -323,9 +311,9 @@ var Aufgabe2_2;
     context.fillStyle = "green";
     context.fill();
     context.beginPath(); //roof
-    var centerX = canvas.width / 2;
-    var centerY = canvas.height / 2;
-    var radius = 50;
+    //var centerX: number = canvas.width / 2;
+    //var centerY: number = canvas.height / 2;
+    //var radius: number = 50;
     context.beginPath();
     context.arc(100, centerY, radius, 0, 2 * Math.PI, false);
     context.fillStyle = "blue";
@@ -345,7 +333,9 @@ var Aufgabe2_2;
             context.beginPath();
             context.fillRect(this.randomX, this.randomY, this.randomWidth, this.randomHeight);
         }
-        drawRandom(a) {
+    }
+    class DrawRect {
+        static drawRandom(a) {
             let sammlung = [];
             for (let u = 0; u <= a; u++) {
                 sammlung.push(new Rect());
@@ -355,5 +345,6 @@ var Aufgabe2_2;
             }
         }
     }
+    DrawRect.drawRandom(5);
 })(Aufgabe2_2 || (Aufgabe2_2 = {}));
 //# sourceMappingURL=script.js.map

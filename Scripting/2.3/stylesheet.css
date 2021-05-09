@@ -1,0 +1,73 @@
+body {
+    font-family: sans-serif;
+    text-orientation: horizontal;
+}
+
+#heading {
+    margin: auto;
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+    padding-left: 40%;
+    margin: auto;
+}
+
+#Leben {
+    background-color: green;
+}
+
+#Magie {
+    background-color: blue;
+}
+
+#Ausdauer {
+    background-color: yellow;
+}
+
+#Wut {
+    background-color: red;
+}
+
+th, td {
+    padding: 5px;
+}
+
+.button {
+    line-break: auto;
+    border: none;
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #4CAF50;
+}
+
+.button:hover {
+    background-color: #3d8f40;
+}
+
+.button2 {
+    background-color: #008CBA;
+}
+
+.button2:hover {
+    background-color: #027ba3;
+}
+
+.button3 {
+    background-color: rgb(248, 248, 121);
+}
+
+.button3:hover {
+    background-color: rgb(241, 241, 109);
+}
+
+.button4 {
+    background-color: #f44336;
+}
+
+.button4:hover {
+    background-color: #df3b30;
+}
+

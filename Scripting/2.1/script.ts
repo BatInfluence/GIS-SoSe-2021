@@ -227,15 +227,15 @@ namespace Aufgabe2_2 {
         }
     }
     let s1: Student = new Student("Paul-Franz", "Leon", 20, "Ingenierswirtschaft");
-        
+
     console.log(s1);
 
     let s2: Student = new Student("Wasser", "Mariana", 19, "Gesundheitswissenschaften");
-       
+
     console.log(s2);
 
     let s3: Student = new Student("Kroemer", "Jakob", 24, "WIrtschaftsinformatik");
-       
+
     console.log(s3);
 
     let studentArray: Student[] = [];
@@ -249,12 +249,12 @@ namespace Aufgabe2_2 {
     console.log(s3.alter);
 
     studentArray.push(new Student("Mustermann", "Max", 21, "Psychologie"));
+    /*
+        s1.showInfo();
+        s2.showInfo();
+        s3.showInfo();
+    */
 
-    s1.showInfo();
-    s2.showInfo();
-    s3.showInfo();
-
-    
 
 
     function backwards(_arr: number[]): number[] {
@@ -270,10 +270,10 @@ namespace Aufgabe2_2 {
 
     function join(_a: number[], _b: number[]): number[] {
         let joined: number[] = [];
-        for(let i: number = 0; i < _a.length; i++) {
+        for (let i: number = 0; i < _a.length; i++) {
             joined.push(_a[i]);
         }
-        for(let i: number = 0; i < _b.length; i++) {
+        for (let i: number = 0; i < _b.length; i++) {
             joined.push(_b[i]);
         }
         return joined;
@@ -345,7 +345,6 @@ namespace Aufgabe2_2 {
     context.fill();
 
     //treeleaves
-    var centerX: number = canvas.width / 2;
     var centerY: number = canvas.height / 2;
     var radius: number = 60;
     context.beginPath();
@@ -354,9 +353,9 @@ namespace Aufgabe2_2 {
     context.fill();
 
     context.beginPath(); //roof
-    var centerX: number = canvas.width / 2;
-    var centerY: number = canvas.height / 2;
-    var radius: number = 50;
+    //var centerX: number = canvas.width / 2;
+    //var centerY: number = canvas.height / 2;
+    //var radius: number = 50;
     context.beginPath();
     context.arc(100, centerY, radius, 0, 2 * Math.PI, false);
     context.fillStyle = "blue";
@@ -386,7 +385,10 @@ namespace Aufgabe2_2 {
             context.fillRect(this.randomX, this.randomY, this.randomWidth, this.randomHeight);
         }
 
-        public drawRandom(a: number): void {
+
+    }
+    class DrawRect {
+        public static drawRandom(a: number): void {
             let sammlung: Rect[] = [];
             for (let u = 0; u <= a; u++) {
                 sammlung.push(new Rect());
@@ -396,6 +398,7 @@ namespace Aufgabe2_2 {
             }
         }
     }
+    DrawRect.drawRandom(5);
 }
 
 
