@@ -77,6 +77,11 @@ namespace Aufgabe2 {
         button.addEventListener("click", handleSelection2);
         button.dataset.index = _index.toString();
 
+        //opens new site
+        button.addEventListener("click", handleSelection3);
+
+
+
         div.appendChild(button);
 
         return div;
@@ -97,9 +102,21 @@ namespace Aufgabe2 {
         console.log("äußere Funktion", parts.auswahl[index]);
     }
 
+    function handleSelection3(_e: Event): void { // Hier soll neue Seite getriggert werden!
+        let target2: HTMLElement = <HTMLElement>_e.currentTarget;
+        let index: number = Number(target2.dataset.index);
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+
+        }
+
+    }
+
+
     function showPossibilities(_parts: Trank[]): void {
         let wrapper: HTMLDivElement = <HTMLDivElement>document.getElementById("selectionWrapper");
-
+        
         for (let i: number = 0; i < _parts.length; i++) {
             let div: HTMLDivElement = createTrankDiv(_parts[i], i);
             wrapper.appendChild(div);
@@ -110,7 +127,16 @@ namespace Aufgabe2 {
 
 }
 
+namespace Aufgabe4 {
+    function convertIntoObj(): void {
 
+        for (let index = 0; index < array.length; index++) {
+
+
+        }
+    }
+    convertIntoObj();
+}
 
 
 

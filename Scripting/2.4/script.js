@@ -1,3 +1,4 @@
+"use strict";
 /*namespace Aufgabe1 {
 
     function setupButtons(): void {
@@ -55,79 +56,63 @@
     }
 }
 */
-namespace Aufgabe2 {
-    function createTrankDiv(_part: Trank, _index: number): HTMLDivElement {
+var Aufgabe2;
+(function (Aufgabe2) {
+    function createTrankDiv(_part, _index) {
         // wrapping div
-        let div: HTMLDivElement = document.createElement("div");
+        let div = document.createElement("div");
         div.classList.add("trank");
-
         // image to be displayed
-        let img: HTMLImageElement = document.createElement("img");
+        let img = document.createElement("img");
         img.src = _part.image;
         div.appendChild(img);
-
         // button
-        let button: HTMLButtonElement = document.createElement("button");
+        let button = document.createElement("button");
         button.innerText = "Select";
-
         // Möglichkeit 1: innere Funktion
         button.addEventListener("click", handleSelection);
-
         // Möglichkeit 2: äußere Funktion 
         button.addEventListener("click", handleSelection2);
         button.dataset.index = _index.toString();
-
+        //opens new site
+        button.addEventListener("click", handleSelection3);
         div.appendChild(button);
-
         return div;
-
         // innere Funktion, welche Durch ihre Positionierung innerhalb der createTrankDiv Funktion das _part noch kennt. Darum kann man einfach folgendes machen:
-        function handleSelection(_e: Event): void {
+        function handleSelection(_e) {
             console.log("innere Funktion", _part);
         }
     }
-
     // äußere Funktion, welche nun anderweitig herausfinden muss, welchen Part wir gewählt haben.
     // in diesem Fall habe ich den index im auswahl Array auf dem Button im dataset hinterlegt.
     // Da der Button das ist, was das Event auslößt, können wir über _e.currentTarget darauf zugreifen.
-    function handleSelection2(_e: Event): void {
-        let target: HTMLElement = <HTMLElement>_e.currentTarget;
-        let index: number = Number(target.dataset.index);
-
-        console.log("äußere Funktion", parts.auswahl[index]);
+    function handleSelection2(_e) {
+        let target = _e.currentTarget;
+        let index = Number(target.dataset.index);
+        console.log("äußere Funktion", Aufgabe2.parts.auswahl[index]);
     }
-
-    function showPossibilities(_parts: Trank[]): void {
-        let wrapper: HTMLDivElement = <HTMLDivElement>document.getElementById("selectionWrapper");
-
-        for (let i: number = 0; i < _parts.length; i++) {
-            let div: HTMLDivElement = createTrankDiv(_parts[i], i);
+    function handleSelection3(_e) {
+        let target2 = _e.currentTarget;
+        let index = Number(target2.dataset.index);
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+        }
+    }
+    function showPossibilities(_parts) {
+        let wrapper = document.getElementById("selectionWrapper");
+        for (let i = 0; i < _parts.length; i++) {
+            let div = createTrankDiv(_parts[i], i);
             wrapper.appendChild(div);
         }
     }
-
-    showPossibilities(parts.auswahl); //Trankauswahl wird gezeigt
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    showPossibilities(Aufgabe2.parts.auswahl); //Trankauswahl wird gezeigt
+})(Aufgabe2 || (Aufgabe2 = {}));
+var Aufgabe4;
+(function (Aufgabe4) {
+    function convertIntoObj() {
+        for (let index = 0; index < array.length; index++) {
+        }
+    }
+    convertIntoObj();
+})(Aufgabe4 || (Aufgabe4 = {}));
+//# sourceMappingURL=script.js.map

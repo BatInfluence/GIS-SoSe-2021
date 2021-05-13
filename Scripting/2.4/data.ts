@@ -1,4 +1,4 @@
-namespace Aufgabe2 {
+namespace Aufgabe4 {
     export interface Trank {
         image: string;
     }
@@ -8,7 +8,6 @@ namespace Aufgabe2 {
         klein: Trank[];
         mittel: Trank[];
         groß: Trank[];
-
     }
 
     // Aufgabe 2 b)
@@ -47,6 +46,12 @@ namespace Aufgabe2 {
             { image: "picture/bigPotion.png" }
         ]
     };
+/*
+    export let trankJSON: string = JSON.stringify(parts);
+    console.log(trankJSON);
 
-   
+    export let trankJSON: string = '{"auswahl": "John", "age": 31, "city": "New York"}';
+    export let parts: AllParts = JSON.parse(trankJSON);
+    document.getElementById("demo").innerHTML = parts.auswahl;
+    */
 }
