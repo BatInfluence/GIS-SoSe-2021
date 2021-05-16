@@ -1,61 +1,7 @@
-/*namespace Aufgabe1 {
+namespace Aufgabe4 {
+    let parts: AllParts;
+    createObj();
 
-    function setupButtons(): void {
-        let b1: HTMLElement = document.createElement("button");
-        b1.style.height = "20px";
-        b1.style.width = "90px";
-
-        b1.addEventListener("click", newRectangle);
-        document.body.appendChild(b1);
-
-        let b2: HTMLElement = document.createElement("button");
-        b2.style.height = "20px";
-        b2.style.width = "90px";
-        b2.style.marginLeft = "80px";
-
-        b2.addEventListener("click", reloadPage);
-        document.body.appendChild(b2);
-    }
-    setupButtons();
-
-    function newRectangle(): void {
-        drawRectangle(2);
-
-        function randomRect(): void {
-            let randomRect: HTMLDivElement = document.createElement("div");
-            randomRect.style.width = Math.random() * 100 + "px";
-            randomRect.style.height = Math.random() * 100 + "px";
-    
-    
-            randomRect.style.backgroundColor = getRandomColor();
-            document.body.append(randomRect);
-    
-        }
-
-        function getRandomColor(): string {
-            let alles: string = "0123456789ABCDEF"; //alle Farben
-            let color: string = "#";
-            for (let i: number = 0; i < 6; i++) {
-                color += alles[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-
-        function drawRectangle(anzahl: number): void {
-            for (let e: number = 0; e <= anzahl; e++) {
-                randomRect();
-            }
-    
-        }
-    }
-    newRectangle();
-
-    function reloadPage(): void {
-        setTimeout("location.reload(true);");
-    }
-}
-*/
-namespace Aufgabe2 {
     function createTrankDiv(_part: Trank, _index: number): HTMLDivElement {
         // wrapping div
         let div: HTMLDivElement = document.createElement("div");
@@ -64,25 +10,18 @@ namespace Aufgabe2 {
         // image to be displayed
         let img: HTMLImageElement = document.createElement("img");
         img.src = _part.image;
+        img.addEventListener("click", handleSelection);
         div.appendChild(img);
 
-        // button
-        let button: HTMLButtonElement = document.createElement("button");
-        button.innerText = "Select";
 
         // Möglichkeit 1: innere Funktion
-        button.addEventListener("click", handleSelection);
+        img.addEventListener("click", handleSelection);
 
-        // Möglichkeit 2: äußere Funktion 
-        button.addEventListener("click", handleSelection2);
-        button.dataset.index = _index.toString();
 
         //opens new site
-        button.addEventListener("click", handleSelection3);
+        img.addEventListener("click", handleSelection2);
 
-
-
-        div.appendChild(button);
+        div.appendChild(img);
 
         return div;
 
@@ -92,51 +31,41 @@ namespace Aufgabe2 {
         }
     }
 
-    // äußere Funktion, welche nun anderweitig herausfinden muss, welchen Part wir gewählt haben.
-    // in diesem Fall habe ich den index im auswahl Array auf dem Button im dataset hinterlegt.
-    // Da der Button das ist, was das Event auslößt, können wir über _e.currentTarget darauf zugreifen.
-    function handleSelection2(_e: Event): void {
-        let target: HTMLElement = <HTMLElement>_e.currentTarget;
-        let index: number = Number(target.dataset.index);
 
-        console.log("äußere Funktion", parts.auswahl[index]);
-    }
-
-    function handleSelection3(_e: Event): void { // Hier soll neue Seite getriggert werden!
-        let target2: HTMLElement = <HTMLElement>_e.currentTarget;
-        let index: number = Number(target2.dataset.index);
-
-        for (let index = 0; index < array.length; index++) {
-            const element = array[index];
-
-        }
+    function handleSelection2(_e: Event): void { // Hier soll neue Seite getriggert werden!
+        //window.open("zusatz.html", "_blank");
+        //???? hab das in der HTML gelöst, bekomme das hier nicht hin
 
     }
-
 
     function showPossibilities(_parts: Trank[]): void {
         let wrapper: HTMLDivElement = <HTMLDivElement>document.getElementById("selectionWrapper");
-        
+
         for (let i: number = 0; i < _parts.length; i++) {
             let div: HTMLDivElement = createTrankDiv(_parts[i], i);
             wrapper.appendChild(div);
         }
     }
-
     showPossibilities(parts.auswahl); //Trankauswahl wird gezeigt
 
-}
 
-namespace Aufgabe4 {
-    function convertIntoObj(): void {
-
-        for (let index = 0; index < array.length; index++) {
-
-
-        }
+    function createObj(): void {
+        parts = JSON.parse(trankJSON);
     }
-    convertIntoObj();
+
+    if (localStorage.click == "pictures/Lifepotion.png") {
+        console.log(localStorage.getItem("pictures/Lifepotion.png"));
+    }
+    if (localStorage.click == "pictures/Manapotion.png") {
+        console.log(localStorage.getItem("pictures/Lifepotion.png"));
+    }
+
+    
+
+    //localStorage.setItem("auswahl", JSON.stringify(parts));
+    //console.log(localStorage.getItem("auswahl"));
 }
+
 
 
 
