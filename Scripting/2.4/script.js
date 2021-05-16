@@ -1,6 +1,9 @@
 "use strict";
 var Aufgabe4;
 (function (Aufgabe4) {
+    let weiterleitungsziel;
+    let localStorageKey;
+    let benutzesArray;
     let parts;
     createObj();
     function createTrankDiv(_part, _index) {
@@ -10,22 +13,22 @@ var Aufgabe4;
         // image to be displayed
         let img = document.createElement("img");
         img.src = _part.image;
-        img.addEventListener("click", handleSelection);
-        div.appendChild(img);
-        // Möglichkeit 1: innere Funktion
-        img.addEventListener("click", handleSelection);
-        //opens new site
+        // Möglichkeit 2: äußere Funktion 
         img.addEventListener("click", handleSelection2);
+        img.dataset.index = _index.toString(); //dataset → assoz. Array, String to String zuweisung
         div.appendChild(img);
         return div;
-        // innere Funktion, welche Durch ihre Positionierung innerhalb der createTrankDiv Funktion das _part noch kennt. Darum kann man einfach folgendes machen:
-        function handleSelection(_e) {
-            console.log("innere Funktion", _part);
-        }
     }
+    // äußere Funktion, welche nun anderweitig herausfinden muss, welchen Part wir gewählt haben.
+    // in diesem Fall habe ich den index im auswahl Array auf dem Button im dataset hinterlegt.
+    // Da der Button das ist, was das Event auslößt, können wir über _e.currentTarget darauf zugreifen.
     function handleSelection2(_e) {
-        //window.open("zusatz.html", "_blank");
-        //???? hab das in der HTML gelöst, bekomme das hier nicht hin
+        let target = _e.currentTarget; // auf currentTarget liegt EventListener
+        let index = Number(target.dataset.index);
+        console.log(index);
+        console.log("äußere Funktion", benutzesArray[index]); // bekomme ausgewählten Trank-Nummer zurück, parts.auswahl → ausgewählter Trank
+        localStorage.setItem(localStorageKey, benutzesArray[index].image); //Bild von potion
+        window.open(weiterleitungsziel, "_self");
     }
     function showPossibilities(_parts) {
         let wrapper = document.getElementById("selectionWrapper");
@@ -34,17 +37,31 @@ var Aufgabe4;
             wrapper.appendChild(div);
         }
     }
-    showPossibilities(parts.auswahl); //Trankauswahl wird gezeigt
     function createObj() {
         parts = JSON.parse(Aufgabe4.trankJSON);
     }
-    if (localStorage.click == "pictures/Lifepotion.png") {
-        console.log(localStorage.getItem("pictures/Lifepotion.png"));
+    function loadPage() {
+        console.log(document.title);
+        if (document.title == "Zusatz") {
+            showPossibilities(parts.zusatz);
+            weiterleitungsziel = "size.html";
+            localStorageKey = "Zusatz";
+            benutzesArray = parts.zusatz;
+            //Anzeige von Bildern
+        }
+        if (document.title == "Size") {
+            showPossibilities(parts.groeße);
+            weiterleitungsziel = "gesamt.html";
+            localStorageKey = "Size";
+            benutzesArray = parts.groeße;
+        }
+        if (document.title == "Trankmixerei") {
+            showPossibilities(parts.auswahl);
+            weiterleitungsziel = "zusatz.html";
+            localStorageKey = "Trankmixerei";
+            benutzesArray = parts.auswahl;
+        }
     }
-    if (localStorage.click == "pictures/Manapotion.png") {
-        console.log(localStorage.getItem("pictures/Lifepotion.png"));
-    }
-    //localStorage.setItem("auswahl", JSON.stringify(parts));
-    //console.log(localStorage.getItem("auswahl"));
+    loadPage();
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=script.js.map

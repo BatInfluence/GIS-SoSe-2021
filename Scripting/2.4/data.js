@@ -52,7 +52,7 @@ var Aufgabe4;
         
             {
                 "image":"pictures/schokolade.jpeg"
-            },    
+            }  
         ],
 
         "groeße":[
@@ -65,7 +65,7 @@ var Aufgabe4;
            {
               "image":"picture/bigPotion.png"
            }
-        ],
+        ]
      }`;
 })(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=data.js.map

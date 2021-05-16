@@ -71,7 +71,7 @@ namespace Aufgabe4 {
         
             {
                 "image":"pictures/schokolade.jpeg"
-            },    
+            }  
         ],
 
         "groeße":[
@@ -84,7 +84,7 @@ namespace Aufgabe4 {
            {
               "image":"picture/bigPotion.png"
            }
-        ],
+        ]
      }`;
 
 }
