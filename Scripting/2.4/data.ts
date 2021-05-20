@@ -71,13 +71,13 @@ namespace Aufgabe4 {
       ],
       "groeße": [
          {
-            "image": "picture/smallPotion.png"
+            "image": "pictures/smallPotion.png"
          },
          {
-            "image": "picture/mittelPotion.png"
+            "image": "pictures/mittelPotion.png"
          },
          {
-            "image": "picture/bigPotion.png"
+            "image": "pictures/bigPotion.png"
          }
       ]
    }`;

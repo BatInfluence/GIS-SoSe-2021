@@ -71,55 +71,7 @@ th, td {
     background-color: #df3b30;
 }
 
-body{
-    background-color: seagreen;
-    width: 1100px;
-    margin: auto;
-
-}
-h1{
-    text-align: center;
-    background-color: darkgreen;
-    padding: 20px;
-
-}
 
 
-h2{
 
-    text-align: center;
-}
 
-#auswahlBereich {
-    display: flex;
-    justify-content: center;
-}
-
-.teil {
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
-    box-shadow: 10px 10px 5px 0px darkslategray;
-    border: 1px solid rgb(43, 87, 41);
-    background-color: rgb(55, 116, 40);
-}
-
-.teil span {
-    text-align: center;
-    font-style: italic;
-    margin: 2px 0;
-    font-size: larger;
-}
-
-.teil button {
-    max-width: 100px;
-    align-self: center;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    font-size: medium;
-}
-
-.teil image {
-    width: 300px;
-    height: 500px;
-}
