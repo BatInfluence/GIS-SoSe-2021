@@ -1,0 +1,40 @@
+"use strict";
+let trankJSON = ` {
+      "auswahl": [
+         {
+            "image": "pictures/Lifepotion.png"
+         },
+         {
+            "image": "pictures/Manapotion.png"
+         },
+         {
+            "image": "pictures/Stealthpotion.png"
+         },
+         {
+            "image": "pictures/Angerpotion.png"
+         }
+      ],
+      "zusatz": [
+         {
+            "image": "pictures/honey.jpeg"
+         },
+         {
+            "image": "pictures/zitone.jpeg"
+         },
+         {
+            "image": "pictures/schokolade.jpeg"
+         }
+      ],
+      "groeße": [
+         {
+            "image": "pictures/smallPotion.png"
+         },
+         {
+            "image": "pictures/mittelPotion.png"
+         },
+         {
+            "image": "pictures/bigPotion.png"
+         }
+      ]
+   }`;
+//# sourceMappingURL=data.js.map
