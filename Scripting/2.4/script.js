@@ -42,24 +42,50 @@ var Aufgabe4;
     }
     function loadPage() {
         console.log(document.title);
-        if (document.title == "Zusatz") {
+        if (document.title == "Zusatz") { //Weiterleitung zu Sizeseite
             showPossibilities(parts.zusatz);
             weiterleitungsziel = "size.html";
             localStorageKey = "Zusatz";
             benutzesArray = parts.zusatz;
             //Anzeige von Bildern
         }
-        if (document.title == "Size") {
+        if (document.title == "Size") { //Weiterleitung zu Gesamtseite
             showPossibilities(parts.groeße);
             weiterleitungsziel = "gesamt.html";
             localStorageKey = "Size";
             benutzesArray = parts.groeße;
         }
-        if (document.title == "Trankmixerei") {
+        if (document.title == "Trankmixerei") { //Weiterleitung zu Zusatzseite
             showPossibilities(parts.auswahl);
             weiterleitungsziel = "zusatz.html";
             localStorageKey = "Trankmixerei";
             benutzesArray = parts.auswahl;
+        }
+        // Aufgabe 2
+        let selectionPreview = document.getElementById("showSelection");
+        //Wenn Auswahl getroffen, aus localStorage nehmen und in "gesamt.html" einfügen
+        if (parts.auswahl) {
+            selectionPreview.appendChild(createImage(localStorage.getItem("Trankmixerei")));
+        }
+        else {
+            selectionPreview.appendChild(createImage("./img/none.png"));
+        }
+        if (parts.zusatz) {
+            selectionPreview.appendChild(createImage(localStorage.getItem("Zusatz")));
+        }
+        else {
+            selectionPreview.appendChild(createImage("./img/none.png"));
+        }
+        if (parts.groeße) {
+            selectionPreview.appendChild(createImage(localStorage.getItem("Size")));
+        }
+        else {
+            selectionPreview.appendChild(createImage("./img/none.png"));
+        }
+        function createImage(_src) {
+            let img = document.createElement("img");
+            img.src = _src;
+            return img;
         }
     }
     loadPage();
