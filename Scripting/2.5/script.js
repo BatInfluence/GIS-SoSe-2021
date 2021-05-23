@@ -5,7 +5,6 @@ var Aufgabe4;
     let localStorageKey;
     let benutzesArray;
     let parts;
-    createObj();
     function createTrankDiv(_part, _index) {
         // wrapping div
         let div = document.createElement("div");
@@ -37,10 +36,33 @@ var Aufgabe4;
             wrapper.appendChild(div);
         }
     }
-    function createObj() {
-        parts = JSON.parse(Aufgabe4.trankJSON);
+    async function loadJSON(_url) {
+        let response = await fetch(_url);
+        console.log("Response", response);
+        let parts = await response.json();
+        console.log(parts.auswahl);
+        console.log(parts.zusatz);
+        console.log(parts.groeße);
     }
-    function loadPage() {
+    loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.JSON");
+    /*async function sendLocalStorage(_url: RequestInfo): Promise<void> { //LocalStorage wird an Server gesendet
+        let LocalArray: string[] = JSON.parse(localStorage.getItem("Trankmixerei")); //HÄÄ??!
+    }
+    sendLocalStorage("https://");
+
+    /*function createObj(): void {
+        parts = JSON.parse(trankJSON);
+    }
+
+    async function buildHTML(): Promise<void> { // JSON in Html anzeigen
+        parts = await loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.json");
+        showPossibilities(parts.auswahl);
+        showPossibilities(parts.zusatz);
+        showPossibilities(parts.groeße);
+    }
+    buildHTML();
+*/
+    async function loadPage() {
         console.log(document.title);
         if (document.title == "Zusatz") { //Weiterleitung zu Sizeseite
             showPossibilities(parts.zusatz);

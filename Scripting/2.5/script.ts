@@ -3,9 +3,26 @@ namespace Aufgabe4 {
     let localStorageKey: string;
     let benutzesArray: Trank[];
     let parts: AllParts;
-    createObj();
+   // createObj();
 
-    
+    export interface Trank {
+        image: string;
+    }
+
+    export interface AllParts {
+        auswahl: Trank[];
+
+        zusatz: Trank[];
+
+        groeße: Trank[];
+    }
+
+    // Aufgabe 2 b)
+    export interface Selection {
+        auswahl: Trank;
+        zusatz: Trank;
+        groeße: Trank;
+    }
     function createTrankDiv(_part: Trank, _index: number): HTMLDivElement {
         // wrapping div
         let div: HTMLDivElement = document.createElement("div");
@@ -15,8 +32,6 @@ namespace Aufgabe4 {
         let img: HTMLImageElement = document.createElement("img");
         img.src = _part.image;
 
-
-
         // Möglichkeit 2: äußere Funktion 
         img.addEventListener("click", handleSelection2);
         img.dataset.index = _index.toString(); //dataset → assoz. Array, String to String zuweisung
@@ -24,8 +39,6 @@ namespace Aufgabe4 {
         div.appendChild(img);
 
         return div;
-
-
     }
 
     // äußere Funktion, welche nun anderweitig herausfinden muss, welchen Part wir gewählt haben.
@@ -51,14 +64,34 @@ namespace Aufgabe4 {
         }
     }
 
+    async function loadJSON(_url: RequestInfo): Promise<void> { //JSon Datei laden
+        let response: Response = await fetch(_url);
+        console.log("Response", response);
+        let parts: AllParts = await response.json();
+        console.log(parts.auswahl);
+        console.log(parts.zusatz);
+        console.log(parts.groeße);
+    }
+    loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.JSON");
 
-    function createObj(): void {
+    /*async function sendLocalStorage(_url: RequestInfo): Promise<void> { //LocalStorage wird an Server gesendet
+        let LocalArray: string[] = JSON.parse(localStorage.getItem("Trankmixerei")); //HÄÄ??!
+    }
+    sendLocalStorage("https://");
+
+    /*function createObj(): void {
         parts = JSON.parse(trankJSON);
     }
 
-
-    function loadPage(): void { // Auf welcher Seite wir sind
-
+    async function buildHTML(): Promise<void> { // JSON in Html anzeigen
+        parts = await loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.json");
+        showPossibilities(parts.auswahl);
+        showPossibilities(parts.zusatz);
+        showPossibilities(parts.groeße);
+    }
+    buildHTML();
+*/
+    async function loadPage(): Promise<void> { // Auf welcher Seite wir sind
         console.log(document.title);
         if (document.title == "Zusatz") { //Weiterleitung zu Sizeseite
             showPossibilities(parts.zusatz);
@@ -85,17 +118,17 @@ namespace Aufgabe4 {
         let selectionPreview: HTMLElement = <HTMLElement>document.getElementById("showSelection");
         //Wenn Auswahl getroffen, aus localStorage nehmen und in "gesamt.html" einfügen
         if (parts.auswahl) {
-            selectionPreview.appendChild(createImage(localStorage.getItem ("Trankmixerei")));
+            selectionPreview.appendChild(createImage(localStorage.getItem("Trankmixerei")));
         } else {
             selectionPreview.appendChild(createImage("./img/none.png"));
         }
         if (parts.zusatz) {
-            selectionPreview.appendChild(createImage(localStorage.getItem ("Zusatz")));
+            selectionPreview.appendChild(createImage(localStorage.getItem("Zusatz")));
         } else {
             selectionPreview.appendChild(createImage("./img/none.png"));
         }
         if (parts.groeße) {
-            selectionPreview.appendChild(createImage(localStorage.getItem ("Size")));
+            selectionPreview.appendChild(createImage(localStorage.getItem("Size")));
         } else {
             selectionPreview.appendChild(createImage("./img/none.png"));
         }
@@ -104,10 +137,13 @@ namespace Aufgabe4 {
             let img: HTMLImageElement = document.createElement("img");
             img.src = _src;
             return img;
+
         }
     }
     loadPage();
 }
+
+
 
 
 
