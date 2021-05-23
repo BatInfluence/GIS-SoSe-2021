@@ -3,7 +3,7 @@ namespace Aufgabe4 {
     let localStorageKey: string;
     let benutzesArray: Trank[];
     let parts: AllParts;
-   // createObj();
+    //createObj();
 
     export interface Trank {
         image: string;
@@ -23,11 +23,52 @@ namespace Aufgabe4 {
         zusatz: Trank;
         groeße: Trank;
     }
+
+    interface Serverausgabe {
+        error: string;
+        message: string;
+    }
+
+    //Aufgabe 2.5 → Anfang
+    let allParts: AllParts;
+    async function loadJSON(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        console.log("Load JSON", response);
+        allParts = await response.json();
+        console.log(allParts.auswahl);
+        console.log(allParts.zusatz);
+        console.log(allParts.groeße);
+    }
+    loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.json");
+    
+
+    //LocalStorage wird an Server gesendet
+    async function sendLocalStorage(_url: RequestInfo): Promise<void> {
+        let localArray: string[] = JSON.parse(localStorage.getItem("localStorageKey")); //HÄÄ? HOW? Hier muss der LocalStorage Key rein
+       
+        let query: URLSearchParams = new URLSearchParams(< any > localArray);
+        _url = _url + "?" + query.toString();
+        await fetch(_url);
+
+        let response: Response = await fetch(_url);
+        let serverResponse: Serverausgabe = await response.json(); 
+        console.log("Server: ", response);
+        await fetch(_url);
+
+        let serverOutput: HTMLParagraphElement = document.createElement("p");
+        if (serverResponse.error == undefined) {
+            serverOutput.innerText = "message: " + serverResponse.message;
+        } else {
+            serverOutput.innerText = "Error: " + serverResponse.error;
+        }
+    }
+    sendLocalStorage("https://gis-communication.herokuapp.com");
+
     function createTrankDiv(_part: Trank, _index: number): HTMLDivElement {
         // wrapping div
         let div: HTMLDivElement = document.createElement("div");
         div.classList.add("trank");
-
+    
         // image to be displayed
         let img: HTMLImageElement = document.createElement("img");
         img.src = _part.image;
@@ -64,33 +105,11 @@ namespace Aufgabe4 {
         }
     }
 
-    async function loadJSON(_url: RequestInfo): Promise<void> { //JSon Datei laden
-        let response: Response = await fetch(_url);
-        console.log("Response", response);
-        let parts: AllParts = await response.json();
-        console.log(parts.auswahl);
-        console.log(parts.zusatz);
-        console.log(parts.groeße);
-    }
-    loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.JSON");
-
-    /*async function sendLocalStorage(_url: RequestInfo): Promise<void> { //LocalStorage wird an Server gesendet
-        let LocalArray: string[] = JSON.parse(localStorage.getItem("Trankmixerei")); //HÄÄ??!
-    }
-    sendLocalStorage("https://");
-
     /*function createObj(): void {
         parts = JSON.parse(trankJSON);
     }
+    */
 
-    async function buildHTML(): Promise<void> { // JSON in Html anzeigen
-        parts = await loadJSON("https://batinfluence.github.io/GIS-SoSe-2021/Scripting/2.5/data.json");
-        showPossibilities(parts.auswahl);
-        showPossibilities(parts.zusatz);
-        showPossibilities(parts.groeße);
-    }
-    buildHTML();
-*/
     async function loadPage(): Promise<void> { // Auf welcher Seite wir sind
         console.log(document.title);
         if (document.title == "Zusatz") { //Weiterleitung zu Sizeseite
@@ -137,7 +156,6 @@ namespace Aufgabe4 {
             let img: HTMLImageElement = document.createElement("img");
             img.src = _src;
             return img;
-
         }
     }
     loadPage();
