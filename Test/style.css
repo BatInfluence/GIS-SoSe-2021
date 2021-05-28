@@ -7,13 +7,29 @@
 body {
     margin: 0;
     font-family: fantasy;
+    
+}
+.background-image{
     background-image: url(pictures/Hintergrund2.png);
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
     height: 100vh;
 }
-
+.background-image2{
+    background-image: url(pictures/Background.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+.background-image3{
+    background-image: url(pictures/Background.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
 header {
     display: -webkit-flex;
     display: -moz-flex;
