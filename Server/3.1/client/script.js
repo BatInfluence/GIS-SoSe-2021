@@ -5,7 +5,7 @@ var Aufgabe3_1;
     btn.addEventListener("click", click);
     async function click() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://gis-example.herokuapp.com/";
+        let url = "https://gis-sose2021.herokuapp.com/";
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         url += "?" + query.toString();
