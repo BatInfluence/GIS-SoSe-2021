@@ -1,8 +1,8 @@
 "use strict";
 var Aufgabe3_1;
 (function (Aufgabe3_1) {
-    let btn = document.getElementById("submit");
-    btn.addEventListener("click", click);
+    let buttonSend = document.getElementById("button2");
+    buttonSend.addEventListener("click", click);
     async function click() {
         let formData = new FormData(document.forms[0]);
         let url = "https://gis-sose2021.herokuapp.com/";

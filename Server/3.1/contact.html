@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,41 @@
     <link href="style.css" rel="stylesheet" media="screen and (min-width: 600px)">
     <title>Contact</title>
 </head>
+
 <body>
     <div class="background-image2">
-    <header>
-        <nav>
-            <ul class="nav-area">
-                <li>
-                    <a href="main.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a class="nav-co" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        <a href="#" class="btn-area">Login</a>
-    </header>
-    <div id="firstpage">
-        <p>UN.SEE</p>
-        <form>
-            <input class="Contact" type="text" name="First name" placeholder="First Name"><br>
-            <input class="Contact" type="text" name="Second name" placeholder="Second name"><br>
-            <input class="Contact" type="email" name="email" placeholder="E-Mail"><br>
-            <button type="button" id="button" >Send</button>
-            <p id="output"></p>
-        </form>
+        <header>
+            <nav>
+                <ul class="nav-area">
+                    <li>
+                        <a href="main.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a class="nav-co" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-area">Login</a>
+        </header>
+        <main>
+            <div id="firstpage">
+                <p>UN.SEE</p>
+            </div>
+            <form class="formular">
+                <input type="text" name="name" placeholder="Last name">
+                <input type="text" name="name" placeholder="First name">
+                <input type="text" name="email" placeholder="E-Mail">
+                <textarea name="message" placeholder="Your message ..."></textarea>
+
+                <div>
+                    <button type="button" id="button2">Send</button>
+                </div>
+
+            </form>
+        </main>
 </body>
+
 </html>
