@@ -1,6 +1,6 @@
 namespace Aufgabe3_1 {
     let buttonSend: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button2");
-    buttonSend.addEventListener("click", click);
+    buttonSend.addEventListener("click", click); //Hääää? warum wird der EventListener nicht erstellt?
 
     async function click(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
