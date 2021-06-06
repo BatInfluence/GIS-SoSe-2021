@@ -1,6 +1,6 @@
 namespace Aufgabe3_1 {
     let buttonSend: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button2");
-    buttonSend.addEventListener("click", click); //Hääää? warum wird der EventListener nicht erstellt?
+    buttonSend.addEventListener("click", click); 
 
     async function click(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
@@ -10,6 +10,6 @@ namespace Aufgabe3_1 {
         url += "?" + query.toString();
         let response: Response = await fetch(url, { method: "get" });
         let responseText: string = await response.text();
-        console.log(responseText);
+        alert(responseText);
     }
 }
