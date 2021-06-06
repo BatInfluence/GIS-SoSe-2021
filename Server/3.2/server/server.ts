@@ -1,6 +1,6 @@
 
 import * as Http from "http";
-import { request } from "https";
+
 import * as Url from "url";
 //sämtl Funktionalitäten werden importiert → Zugriff auf Funktionen und Objekte der Modeule
 export namespace Aufgabe3_1 {
@@ -29,7 +29,7 @@ export namespace Aufgabe3_1 {
             }
             let jsonString: string = JSON.stringify(url.query);
             _response.write(jsonString);
-            
+
         }
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Header wird erstellt
