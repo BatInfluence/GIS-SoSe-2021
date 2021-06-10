@@ -1,7 +1,7 @@
 "use strict";
 var Aufgabe3_1;
 (function (Aufgabe3_1) {
-    let url = "https://gissose2021heroku.herokuapp.com/";
+    let url = "https://gis-sose2021.herokuapp.com/";
     let type = "";
     let htmlSubmit = document.getElementById("htmlsubmit");
     let jsonSubmit = document.getElementById("jsonsubmit");
@@ -34,7 +34,7 @@ var Aufgabe3_1;
             let frag = document.createRange().createContextualFragment(responseText);
             responseDIV.appendChild(frag);
         }
-        url = "https://gissose2021heroku.herokuapp.com/";
+        url = "https://gis-sose2021.herokuapp.com/";
     }
 })(Aufgabe3_1 || (Aufgabe3_1 = {}));
 //# sourceMappingURL=script.js.map
