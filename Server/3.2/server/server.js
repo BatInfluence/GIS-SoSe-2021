@@ -1,14 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Aufgabe3_1 = void 0;
-const Http = require("http"); //sämtl Funktionalitäten werden importiert → Zugriff auf Funktionen und Objekte der Modeule
-var Aufgabe3_1;
-(function (Aufgabe3_1) {
+exports.Aufgabe3_2 = void 0;
+const Http = require("http");
+const Url = require("url");
+//sämtl Funktionalitäten werden importiert → Zugriff auf Funktionen und Objekte der Modeule
+var Aufgabe3_2;
+(function (Aufgabe3_2) {
     console.log("Starting server");
     let port = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
     if (!port) //Wenn Port nicht geöffnet werden kann wird / geöffnet
         port = 8100; //Kommen auf unsere HerokuSeite mit dem /
-    //Create new Server
+    //Create new Server piupiu
     let server = Http.createServer();
     server.addListener("request", handleRequest); //Eingetipptes wird gespeichert
     server.addListener("listening", handleListen);
@@ -18,10 +20,33 @@ var Aufgabe3_1;
     }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
+        /* if (_request.url) {
+             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+             for (let key in url.query) {
+                 console.log(key + ": " + url.query[key]);
+             }
+             let jsonString: string = JSON.stringify(url.query);
+             _response.write(jsonString);
+ 
+         }
+ */
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Header wird erstellt
         _response.setHeader("Access-Control-Allow-Origin", "*"); //jeder hat access
-        _response.write(_request.url); //IncomingMessage & ServerResponse
+        if (_request.url) {
+            let url = Url.parse(_request.url, true);
+            if (url.pathname == "/html") {
+                for (let key in url.query) {
+                    _response.write(key + ": " + url.query[key] + "<br>");
+                }
+            }
+            if (url.pathname == "/json") {
+                let jsonString = JSON.stringify(url.query);
+                _response.write(jsonString);
+            }
+        }
         _response.end();
+        // _response.write(_request.url); //IncomingMessage & ServerResponse
+        // _response.end();
     }
-})(Aufgabe3_1 = exports.Aufgabe3_1 || (exports.Aufgabe3_1 = {}));
+})(Aufgabe3_2 = exports.Aufgabe3_2 || (exports.Aufgabe3_2 = {}));
 //# sourceMappingURL=server.js.map
