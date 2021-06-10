@@ -1,5 +1,5 @@
 namespace Aufgabe3_1 {
-    let url: string = "http://localhost:8100/";
+    let url: string = "https://gis-sose2021.herokuapp.com";
     let type: string = "";
 
     let htmlSubmit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlsubmit");
@@ -38,6 +38,6 @@ namespace Aufgabe3_1 {
             let frag: DocumentFragment = document.createRange().createContextualFragment(responseText);
             responseDIV.appendChild(frag);
         }
-        url = "http://localhost:8100/";
+        url = "https://gis-sose2021.herokuapp.com";
     }
 }
