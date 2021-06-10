@@ -1,13 +1,11 @@
 "use strict";
 var Aufgabe3_1;
 (function (Aufgabe3_1) {
-    let url = "https://gis-sose2021.herokuapp.com/";
+    let url = "https://gis-sose2021.herokuapp.com";
     let type = "";
     let htmlSubmit = document.getElementById("htmlsubmit");
     let jsonSubmit = document.getElementById("jsonsubmit");
     let responseDIV = document.getElementById("responseDIV");
-    let buttonSend = document.getElementById("button2");
-    buttonSend.addEventListener("click", handleSubmit);
     jsonSubmit.addEventListener("click", function () {
         type = "/json";
         handleSubmit();
@@ -24,17 +22,15 @@ var Aufgabe3_1;
         //url += "?" + query.toString();
         let response = await fetch(url += "?" + query.toString());
         let responseText = await response.text();
-        alert(response.text);
+        alert(responseText);
         if (type == "/json") {
             let responseJSON = JSON.parse(responseText);
             console.log(responseJSON);
         }
         else if (type == "/html") {
-            responseDIV.innerHTML = "";
-            let frag = document.createRange().createContextualFragment(responseText);
-            responseDIV.appendChild(frag);
+            responseDIV.innerHTML = responseText;
         }
-        url = "https://gis-sose2021.herokuapp.com/";
+        url = "https://gis-sose2021.herokuapp.com";
     }
 })(Aufgabe3_1 || (Aufgabe3_1 = {}));
 //# sourceMappingURL=script.js.map

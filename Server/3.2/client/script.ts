@@ -1,13 +1,11 @@
 namespace Aufgabe3_1 {
-    let url: string = "https://gis-sose2021.herokuapp.com/";
+    let url: string = "https://gis-sose2021.herokuapp.com";
     let type: string = "";
 
     let htmlSubmit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlsubmit");
     let jsonSubmit: HTMLButtonElement = <HTMLButtonElement>document.getElementById("jsonsubmit");
     let responseDIV: HTMLDivElement = <HTMLDivElement>document.getElementById("responseDIV");
-    let buttonSend: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button2");
 
-    buttonSend.addEventListener("click", handleSubmit);
 
     jsonSubmit.addEventListener("click", function (): void {
         type = "/json";
@@ -27,17 +25,16 @@ namespace Aufgabe3_1 {
         //url += "?" + query.toString();
         let response: Response = await fetch( url += "?" + query.toString());
         let responseText: string = await response.text();
-        alert(response.text);
+
+        alert(responseText);
 
         if (type == "/json") {
             let responseJSON: JSON = JSON.parse(responseText);
             console.log(responseJSON);
         }
         else if (type == "/html") {
-            responseDIV.innerHTML = "";
-            let frag: DocumentFragment = document.createRange().createContextualFragment(responseText);
-            responseDIV.appendChild(frag);
+            responseDIV.innerHTML = responseText;
         }
-        url = "https://gis-sose2021.herokuapp.com/";
+        url = "https://gis-sose2021.herokuapp.com";
     }
 }
