@@ -21,16 +21,16 @@ export namespace Aufgabe3_2 {
 
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //send Order
         console.log("I hear voices!");
-       /* if (_request.url) {
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            for (let key in url.query) {
-                console.log(key + ": " + url.query[key]);
-            }
-            let jsonString: string = JSON.stringify(url.query);
-            _response.write(jsonString);
-
-        }
-*/
+        /* if (_request.url) {
+             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+             for (let key in url.query) {
+                 console.log(key + ": " + url.query[key]);
+             }
+             let jsonString: string = JSON.stringify(url.query);
+             _response.write(jsonString);
+ 
+         }
+ */
         _response.setHeader("content-type", "text/html; charset=utf-8"); //Header wird erstellt
         _response.setHeader("Access-Control-Allow-Origin", "*"); //jeder hat access
         if (_request.url) {
@@ -44,10 +44,10 @@ export namespace Aufgabe3_2 {
                 let jsonString: string = JSON.stringify(url.query);
                 _response.write(jsonString);
             }
-            _response.end();
-        }
-       // _response.write(_request.url); //IncomingMessage & ServerResponse
-       // _response.end();
+        } 
+        _response.end();
+        // _response.write(_request.url); //IncomingMessage & ServerResponse
+        // _response.end();
 
     }
 }
