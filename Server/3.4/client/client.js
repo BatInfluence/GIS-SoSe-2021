@@ -1,7 +1,6 @@
 "use strict";
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let formData;
     let url = "https://gis-sose2021.herokuapp.com";
     let type = "";
     let f;

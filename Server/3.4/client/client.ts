@@ -1,11 +1,10 @@
 namespace Aufgabe3_4 {
-    let formData: FormData;
     let url: string = "https://gis-sose2021.herokuapp.com";
     let type: string = "";
     let f: Feedback;
 
 
-    interface Feedback {
+    export interface Feedback {
         name: string;
         lastname: string;
         registration: number;

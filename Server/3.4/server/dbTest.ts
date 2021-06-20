@@ -3,6 +3,8 @@ import * as Http from "http";
 import * as Url from "url";
 
 export namespace Aufgabe3_4 {
+  let f: Feedback;
+  let _URLmongo: string = "mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
   interface Feedback {
     name: string;
@@ -13,7 +15,6 @@ export namespace Aufgabe3_4 {
 
   startServer();
   async function startServer(): Promise<void> {
-    await connectToDB("mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
     console.log("Starting server");
 
     let port: number = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
@@ -32,75 +33,79 @@ export namespace Aufgabe3_4 {
   }
 
 
-  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //send Order
+  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> { //send Order
     console.log("I hear voices!");
 
     _response.setHeader("content-type", "text/html; charset=utf-8"); //Header wird erstellt
     _response.setHeader("Access-Control-Allow-Origin", "*"); //jeder hat access
+
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-      if (url.pathname == "/html") {
-        for (let key in url.query) {
-          _response.write(key + ": " + url.query[key] + "<br>");
-        }
+      if (url.pathname == "/send") {
+        let response: string = await submitText(f);
+        _response.write(response + "<br>");
       }
-      if (url.pathname == "/json") {
-        let jsonString: string = JSON.stringify(url.query);
-        _response.write(jsonString);
+      if (url.pathname == "/receive") {
+        let response: Feedback[] = await giveFeedback();
+        _response.write(JSON.stringify(response));
       }
       _response.end();
     }
   }
 
-  async function connectToDB(_url: string): Promise<void> {
-    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, { useNewUrlParser: true, useUnifiedTopology: true });
+  async function connectToDB(): Promise<Mongo.Collection> {
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_URLmongo, { useNewUrlParser: true, useUnifiedTopology: true });
     await mongoClient.connect();
-    let collection: Mongo.Collection = mongoClient.db("Test").collection("Students");
-    console.log("Database connection", collection != undefined);
-    console.log("findAll");
-    let cursor: Mongo.Cursor<Feedback> = await collection.find();
-    await cursor.toArray();
+    let students: Mongo.Collection = mongoClient.db("Test").collection("Students");
 
+    /* console.log("Database connection", students != undefined);
+     console.log("findAll");
+     let cursor: Mongo.Cursor<Feedback> = await students.find();
+     await cursor.toArray();
+     → siehe function giveFeedback
+     */
+    return students;
   }
- /* async function connectToDB(_url: string): Promise<void> {
-    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
+  /*
+  async function connectToDB(_url: string): Promise<void> {
+    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+  
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
     await mongoClient.connect();
-
+  
     let students: Mongo.Collection = mongoClient.db("Test").collection("Student");
-
+  
     // let s: Student = {name: "Max Mustermann", matrikel: 666};
     // students.insertOne(s);
   }
-*/
-/*
-  async function submitText(s: Student): Promise<string> {
+  */
+
+  async function submitText(f: Feedback): Promise<string> {
     let students: Mongo.Collection = await connectToDB();
     let output: string = "";
 
-    if (s.registration + "" == "NaN") {
+    if (f.registration + "" == "NaN") {
       output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
     }
-    else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+    else if (await students.countDocuments({ "Matrikelnummer": f.registration }) != 0) {
       output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
     }
     else {
-      students.insertOne(s);
-      output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+      students.insertOne(f);
+      output = "Feedback von '" + f.name + "' (" + f.registration + ") " + "hinzugefügt.";
     }
     return output;
   }
-  */
-/*
-  async function giveFeedback(): Promise<Student[]> {
+
+  async function giveFeedback(): Promise<Feedback[]> {
     let students: Mongo.Collection = await connectToDB();
     let cursor: Mongo.Cursor = students.find();
-    let result: Student[] = await cursor.toArray();
+    let result: Feedback[] = await cursor.toArray();
     return result;
   }
-*/
 }
+
 
 /*
 let cursor: Mongo.Cursor = students.find();
