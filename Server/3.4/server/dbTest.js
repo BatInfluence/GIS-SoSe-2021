@@ -7,7 +7,7 @@ const Url = require("url");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
     let f;
-    let _URLmongo = "mongodb+srv://new-user1:<password>>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _URLmongo = "mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     startServer();
     async function startServer() {
         console.log("Starting server");
