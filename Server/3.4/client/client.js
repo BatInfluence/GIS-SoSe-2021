@@ -18,8 +18,9 @@ var Aufgabe3_4;
         handleRequest(1);
     }
     async function handleRequest(type) {
+        let formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
-        let query = new URLSearchParams(FormData);
+        let query = new URLSearchParams(formData);
         if (type == 0) {
             url += "/send" + "?" + query.toString();
             let response = await fetch(url);

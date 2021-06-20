@@ -30,8 +30,9 @@ namespace Aufgabe3_4 {
     }
 
     async function handleRequest(type: number): Promise<void> {
+        let formData: FormData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>FormData);
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
         if (type == 0) {
             url += "/send" + "?" + query.toString();
             let response: Response = await fetch(url);
