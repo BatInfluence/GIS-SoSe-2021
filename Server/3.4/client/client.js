@@ -11,7 +11,6 @@ var Aufgabe3_4;
     function submitText() {
         // console.log("erfolgt"); 
         type = "/send";
-        updateInputs();
         handleRequest();
     }
     function giveFeedback() {
@@ -39,13 +38,6 @@ var Aufgabe3_4;
             console.log("Data Received.\n URL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";
-    }
-    function updateInputs() {
-        let name = document.getElementsByTagName("input")[0].value;
-        let lastname = document.getElementsByTagName("input")[1].value;
-        let registration = parseInt(document.getElementsByTagName("input")[2].value);
-        let text = document.getElementsByTagName("input")[3].value;
-        f = { name, lastname, registration, text };
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=client.js.map

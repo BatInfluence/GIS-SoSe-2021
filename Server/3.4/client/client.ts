@@ -20,7 +20,6 @@ namespace Aufgabe3_4 {
     function submitText(): void {
         // console.log("erfolgt"); 
         type = "/send";
-        updateInputs();
         handleRequest();
     }
 
@@ -54,14 +53,4 @@ namespace Aufgabe3_4 {
         }
         url = "https://gis-sose2021.herokuapp.com";
     }
-
-    function updateInputs(): void {
-        let name: string = document.getElementsByTagName("input")[0].value;
-        let lastname: string = document.getElementsByTagName("input")[1].value;
-        let registration: number = parseInt(document.getElementsByTagName("input")[2].value);
-        let text: string = document.getElementsByTagName("input")[3].value;
-        f = { name, lastname, registration, text };
-    }
-
-
 }
