@@ -1,6 +1,5 @@
 namespace Aufgabe3_4 {
     let url: string = "https://gis-sose2021.herokuapp.com";
-    let type: string = "";
     let f: Feedback;
 
 
@@ -30,26 +29,21 @@ namespace Aufgabe3_4 {
         handleRequest(1);
     }
 
-    async function handleRequest(type:number): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
-        url += type;
-        // tslint:disable-next-line: no-any
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        //url += "?" + query.toString();
-        let response: Response = await fetch(url += "?" + query.toString());
-        let responseText: string = await response.text();
-
-        console.log(responseText);
-
+    async function handleRequest(type: number): Promise<void> {
+        let query: URLSearchParams = new URLSearchParams(<any>FormData);
         if (type == 0) {
+            url += "/send" + "?" + query.toString();
+            let response: Response = await fetch(url);
+            let responseString: string = await response.text();
             console.log("Data Sent", f);
             console.log("URL:", url);
-            document.getElementById("Tada").innerHTML += responseText + "\n";
-        }
-        else if (type == 1) {
+            document.getElementById("output").innerHTML += responseString + "\n\n";
+        } else if (type == 1) {
+            url += "/receive" + "?" + query.toString();
+            let response: Response = await fetch(url);
             let responseJSON: Feedback = await response.json();
-            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
-            console.log("Data Received.\n URL: " + url);
+            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n\n";
+            console.log("Data Received.\nURL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";
     }
