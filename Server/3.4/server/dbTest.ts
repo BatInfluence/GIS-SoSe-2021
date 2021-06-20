@@ -4,7 +4,7 @@ import * as Url from "url";
 
 export namespace Aufgabe3_4 {
 
-  interface Student {
+  interface Feedback {
     name: string;
     lastname: string;
     registration: number;
@@ -53,6 +53,16 @@ export namespace Aufgabe3_4 {
   }
 
   async function connectToDB(_url: string): Promise<void> {
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoClient.connect();
+    let collection: Mongo.Collection = mongoClient.db("Test").collection("Students");
+    console.log("Database connection", collection != undefined);
+    console.log("findAll");
+    let cursor: Mongo.Cursor<Feedback> = await collection.find();
+    await cursor.toArray();
+
+  }
+ /* async function connectToDB(_url: string): Promise<void> {
     let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
@@ -63,34 +73,36 @@ export namespace Aufgabe3_4 {
     // let s: Student = {name: "Max Mustermann", matrikel: 666};
     // students.insertOne(s);
   }
+*/
+/*
+  async function submitText(s: Student): Promise<string> {
+    let students: Mongo.Collection = await connectToDB();
+    let output: string = "";
 
-  /* async function submitText(s: Student): Promise<string> {
-     let students: Mongo.Collection = await connectToDB();
-     let output: string = "";
-
-     if (s.registration + "" == "NaN") {
-       output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
-     }
-     else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
-       output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
-     }
-     else {
-       students.insertOne(s);
-       output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
-     }
-     return output;
-   }
-
-   async function giveFeedback(): Promise<Student[]> {
-     let students: Mongo.Collection = await connectToDB();
-     let cursor: Mongo.Cursor = students.find();
-     let result: Student[] = await cursor.toArray();
-     return result;
-   }
-   */
+    if (s.registration + "" == "NaN") {
+      output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
+    }
+    else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+      output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
+    }
+    else {
+      students.insertOne(s);
+      output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+    }
+    return output;
+  }
+  */
+/*
+  async function giveFeedback(): Promise<Student[]> {
+    let students: Mongo.Collection = await connectToDB();
+    let cursor: Mongo.Cursor = students.find();
+    let result: Student[] = await cursor.toArray();
+    return result;
+  }
+*/
 }
 
-  /*
+/*
 let cursor: Mongo.Cursor = students.find();
 let result: Student[] = await cursor.toArray();
 console.log(result);
