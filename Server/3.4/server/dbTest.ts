@@ -1,0 +1,100 @@
+import * as Mongo from "mongodb";
+import * as Http from "http";
+import * as Url from "url";
+
+export namespace Aufgabe3_4 {
+  let mongoURL: string = "mongodb+srv://new-user1:<password>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  interface Student {
+    name: string;
+    lastname: string;
+    registration: number;
+    text: string;
+}
+
+  console.log("Starting server");
+  let port: number = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
+  if (!port) //Wenn Port nicht geöffnet werden kann wird / geöffnet
+    port = 8100; //Kommen auf unsere HerokuSeite mit dem /
+
+  //Create new Server piupiu
+  let server: Http.Server = Http.createServer();
+  server.addListener("request", handleRequest); //Eingetipptes wird gespeichert
+  server.addListener("listening", handleListen);
+  server.listen(port);
+
+  function handleListen(): void {
+    console.log("Listening");
+  }
+
+
+  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //send Order
+    console.log("I hear voices!");
+
+    _response.setHeader("content-type", "text/html; charset=utf-8"); //Header wird erstellt
+    _response.setHeader("Access-Control-Allow-Origin", "*"); //jeder hat access
+    if (_request.url) {
+      let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+      if (url.pathname == "/html") {
+        for (let key in url.query) {
+          _response.write(key + ": " + url.query[key] + "<br>");
+        }
+      }
+      if (url.pathname == "/json") {
+        let jsonString: string = JSON.stringify(url.query);
+        _response.write(jsonString);
+      }
+      _response.end();
+    }
+  }
+
+  async function connectToDB(_url: string): Promise<Mongo.Collection> {
+    let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
+
+    let students: Mongo.Collection = mongoClient.db("Test").collection("Student");
+
+    // let s: Student = {name: "Max Mustermann", matrikel: 666};
+    // students.insertOne(s);
+    return students;
+  }
+
+  async function submitText(s: Student): Promise<string> {
+    let students: Mongo.Collection = await connectToDB();
+    let output: string = "";
+    if (s.registration + "" == "NaN") {
+      output = "Die Matrikelnummer ist ungültig.";
+    } else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+      output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
+    } else {
+      students.insertOne(s);
+      output = "StudentIn '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+    }
+    return output;
+  }
+
+  async function giveFeedback(): Promise<Student[]> {
+    let students: Mongo.Collection = await connectToDB();
+    let cursor: Mongo.Cursor = students.find();
+    let result: Student[] = await cursor.toArray();
+    return result;
+  }
+}
+  /*
+let cursor: Mongo.Cursor = students.find();
+let result: Student[] = await cursor.toArray();
+console.log(result);
+
+let s: Student = await students.findOne({ matrikel: 123456 });
+console.log(s);
+students.deleteOne({ matrikel: 666 });
+}
+
+connectToDB("mongodb://localhost:27017");
+
+interface Student {
+name: string;
+matrikel: number;
+}
+*/
