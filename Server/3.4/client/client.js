@@ -34,9 +34,9 @@ var Aufgabe3_4;
             console.log("URL:", url);
             document.getElementById("Tada").innerHTML += responseText + "\n";
         }
-        else if (type == "/recieve") {
+        else if (type == "/receive") {
             let responseJSON = await response.json();
-            document.getElementById("Tada").innerHTML += JSON.stringify(responseJSON) + "\n";
+            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
             console.log("Data Received.\n URL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";
