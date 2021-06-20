@@ -46,31 +46,30 @@ var Aufgabe3_4;
             let mongoClient = new Mongo.MongoClient(_url, options);
             await mongoClient.connect();
             let students = mongoClient.db("Test").collection("Student");
-            let cursor = students.find();
-            await cursor.toArray();
             // let s: Student = {name: "Max Mustermann", matrikel: 666};
             // students.insertOne(s);
         }
-        /*async function submitText(s: Student): Promise<string> {
-          let students: Mongo.Collection = await connectToDB();
-          let output: string = "";
-    
-          if (s.registration + "" == "NaN") {
-            output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
-          }
-          else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
-            output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
-          }
-          else {
-            students.insertOne(s);
-            output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
-          }
-          return output;
+        async function submitText(s) {
+            let students = await connectToDB();
+            let output = "";
+            if (s.registration + "" == "NaN") {
+                output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
+            }
+            else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+                output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
+            }
+            else {
+                students.insertOne(s);
+                output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+            }
+            return output;
         }
-    */
-        //async function giveFeedback(): Promise<Student[]> {
-        //let students: Mongo.Collection = await connectToDB();
-        //}
+        async function giveFeedback() {
+            let students = await connectToDB();
+            let cursor = students.find();
+            let result = await cursor.toArray();
+            return result;
+        }
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 /*

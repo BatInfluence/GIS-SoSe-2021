@@ -32,11 +32,11 @@ var Aufgabe3_4;
         if (type == "/send") {
             console.log("Data Sent", f);
             console.log("URL:", url);
-            document.getElementById("response").innerHTML += responseText + "\n";
+            document.getElementById("Tada").innerHTML += responseText + "\n";
         }
         else if (type == "/recieve") {
             let responseJSON = await response.json();
-            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
+            document.getElementById("Tada").innerHTML += JSON.stringify(responseJSON) + "\n";
             console.log("Data Received.\n URL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";

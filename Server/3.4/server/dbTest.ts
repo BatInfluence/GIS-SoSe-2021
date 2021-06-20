@@ -4,10 +4,11 @@ import * as Url from "url";
 
 export namespace Aufgabe3_4 {
 
-  export interface Feedback {
+  interface Student {
     name: string;
     lastname: string;
     registration: number;
+    text: string;
   }
 
   startServer();
@@ -60,14 +61,11 @@ export namespace Aufgabe3_4 {
 
       let students: Mongo.Collection = mongoClient.db("Test").collection("Student");
 
-      let cursor: Mongo.Cursor = students.find();
-      await cursor.toArray();
-      
       // let s: Student = {name: "Max Mustermann", matrikel: 666};
       // students.insertOne(s);
     }
 
-    /*async function submitText(s: Student): Promise<string> {
+    async function submitText(s: Student): Promise<string> {
       let students: Mongo.Collection = await connectToDB();
       let output: string = "";
 
@@ -83,10 +81,13 @@ export namespace Aufgabe3_4 {
       }
       return output;
     }
-*/
-    //async function giveFeedback(): Promise<Student[]> {
-      //let students: Mongo.Collection = await connectToDB();
-    //}
+
+    async function giveFeedback(): Promise<Student[]> {
+      let students: Mongo.Collection = await connectToDB();
+      let cursor: Mongo.Cursor = students.find();
+      let result: Student[] = await cursor.toArray();
+      return result;
+    }
   }
 }
   /*
