@@ -10,15 +10,15 @@ var Aufgabe3_4;
     feedback.addEventListener("click", giveFeedback);
     function submitText() {
         // console.log("erfolgt"); 
-        type = "/send";
-        handleRequest();
+        //type = "/send";
+        handleRequest(0);
     }
     function giveFeedback() {
         // console.log("piupiu");
-        type = "/receive";
-        handleRequest();
+        //type = "/receive";
+        handleRequest(1);
     }
-    async function handleRequest() {
+    async function handleRequest(type) {
         let formData = new FormData(document.forms[0]);
         url += type;
         // tslint:disable-next-line: no-any
@@ -27,12 +27,12 @@ var Aufgabe3_4;
         let response = await fetch(url += "?" + query.toString());
         let responseText = await response.text();
         console.log(responseText);
-        if (type == "/send") {
+        if (type == 0) {
             console.log("Data Sent", f);
             console.log("URL:", url);
             document.getElementById("Tada").innerHTML += responseText + "\n";
         }
-        else if (type == "/receive") {
+        else if (type == 1) {
             let responseJSON = await response.json();
             document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
             console.log("Data Received.\n URL: " + url);

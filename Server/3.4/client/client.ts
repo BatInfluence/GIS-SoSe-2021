@@ -19,18 +19,18 @@ namespace Aufgabe3_4 {
 
     function submitText(): void {
         // console.log("erfolgt"); 
-        type = "/send";
-        handleRequest();
+        //type = "/send";
+        handleRequest(0);
     }
 
 
     function giveFeedback(): void {
         // console.log("piupiu");
-        type = "/receive";
-        handleRequest();
+        //type = "/receive";
+        handleRequest(1);
     }
 
-    async function handleRequest(): Promise<void> {
+    async function handleRequest(type:number): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
         url += type;
         // tslint:disable-next-line: no-any
@@ -41,12 +41,12 @@ namespace Aufgabe3_4 {
 
         console.log(responseText);
 
-        if (type == "/send") {
+        if (type == 0) {
             console.log("Data Sent", f);
             console.log("URL:", url);
             document.getElementById("Tada").innerHTML += responseText + "\n";
         }
-        else if (type == "/receive") {
+        else if (type == 1) {
             let responseJSON: Feedback = await response.json();
             document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
             console.log("Data Received.\n URL: " + url);
