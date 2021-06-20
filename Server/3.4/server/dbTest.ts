@@ -14,7 +14,7 @@ export namespace Aufgabe3_4 {
   startServer();
   async function startServer(): Promise<void> {
     {
-      await connectToDB("mongodb+srv://new-user1:<piupiu123>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+      await connectToDB("mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
       console.log("Starting server");
 
       let port: number = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
