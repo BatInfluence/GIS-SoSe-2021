@@ -35,7 +35,7 @@ var Aufgabe3_4;
             }
             if (url.pathname == "/receive") {
                 let response = await giveFeedback();
-                _response.write(JSON.stringify(response));
+                _response.write(JSON.stringify(response) + "<br>");
             }
             _response.end();
         }

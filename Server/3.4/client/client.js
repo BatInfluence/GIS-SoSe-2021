@@ -22,7 +22,7 @@ var Aufgabe3_4;
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         if (type == 0) {
-            url += "/send" + "?" + query.toString();
+            url += "/submit" + "?" + query.toString();
             let response = await fetch(url);
             let responseString = await response.text();
             console.log("Data Sent", f);
@@ -30,11 +30,11 @@ var Aufgabe3_4;
             document.getElementById("output").innerHTML += responseString + "\n";
         }
         else if (type == 1) {
-            url += "/receive" + "?" + query.toString();
+            url += "/feedback" + "?" + query.toString();
             let response = await fetch(url);
             let responseJSON = await response.json();
             document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
-            console.log("Data Received.\n URL: " + url);
+            console.log("piupiu!\n URL: " + url);
         }
         // url = "https://gis-sose2021.herokuapp.com";
     }

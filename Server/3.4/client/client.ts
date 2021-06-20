@@ -34,18 +34,18 @@ namespace Aufgabe3_4 {
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         if (type == 0) {
-            url += "/send" + "?" + query.toString();
+            url += "/submit" + "?" + query.toString();
             let response: Response = await fetch(url);
             let responseString: string = await response.text();
             console.log("Data Sent", f);
             console.log("URL:", url);
             document.getElementById("output").innerHTML += responseString + "\n";
         } else if (type == 1) {
-            url += "/receive" + "?" + query.toString();
+            url += "/feedback" + "?" + query.toString();
             let response: Response = await fetch(url);
             let responseJSON: Feedback = await response.json();
             document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
-            console.log("Data Received.\n URL: " + url);
+            console.log("piupiu!\n URL: " + url);
         }
        // url = "https://gis-sose2021.herokuapp.com";
     }
