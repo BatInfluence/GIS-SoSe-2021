@@ -18,41 +18,37 @@ namespace Aufgabe3_4 {
 
     function submitText(): void {
         // console.log("erfolgt"); 
+        type = "/json";
         updateInputs();
-        handleRequest(0);
+        handleRequest();
     }
 
 
     function giveFeedback(): void {
         // console.log("piupiu");
-        handleRequest(1);
+        type = "/html";
+        handleRequest();
     }
 
-    async function handleRequest(type: number): Promise<void> {
-        formData = new FormData(document.forms[0]);
-        //tslint:disable-next-line
+    async function handleRequest(): Promise<void> {
+        let formData: FormData = new FormData(document.forms[0]);
+        url += type;
+        // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        if (type == 0) {
-            url += "/send" + "?" + query.toString();
-            let response: Response = await fetch(url);
-            let responseString: string = await response.text();
-            console.log("Data Sent", s);
-            console.log("URL:", url);
-            document.getElementById("response").innerHTML += responseString + "\n\n";
+        //url += "?" + query.toString();
+        let response: Response = await fetch(url += "?" + query.toString());
+        let responseText: string = await response.text();
 
-        } else if (type == 1) {
-            url += "/receive" + "?" + query.toString();
-            let response: Response = await fetch(url);
-            let responseJSON: Feedback = await response.json();
-            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n\n";
-            console.log("Data Received.\nURL: " + url);
-        } else {
-            url += "/del" + "?" + query.toString();
-            let response: Response = await fetch(url);
-            let responseString: string = await response.text();
-            console.log("Entry " + s.matrikel + " deleted.\nURL: " + url);
-            document.getElementById("response").innerHTML += responseString + "\n\n";
+        alert(responseText);
+
+        if (type == "/json") {
+            let responseJSON: JSON = JSON.parse(responseText);
+            console.log(responseJSON);
         }
+        else if (type == "/html") {
+            responseDIV.innerHTML = responseText;
+        }
+        url = "https://gis-sose2021.herokuapp.com";
     }
 
     function updateInputs(): void {

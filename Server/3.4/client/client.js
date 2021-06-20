@@ -10,39 +10,32 @@ var Aufgabe3_4;
     feedback.addEventListener("click", giveFeedback);
     function submitText() {
         // console.log("erfolgt"); 
+        type = "/json";
         updateInputs();
-        handleRequest(0);
+        handleRequest();
     }
     function giveFeedback() {
         // console.log("piupiu");
-        handleRequest(1);
+        type = "/html";
+        handleRequest();
     }
-    async function handleRequest(type) {
-        formData = new FormData(document.forms[0]);
-        //tslint:disable-next-line
+    async function handleRequest() {
+        let formData = new FormData(document.forms[0]);
+        url += type;
+        // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        if (type == 0) {
-            url += "/send" + "?" + query.toString();
-            let response = await fetch(url);
-            let responseString = await response.text();
-            console.log("Data Sent", s);
-            console.log("URL:", url);
-            document.getElementById("response").innerHTML += responseString + "\n\n";
+        //url += "?" + query.toString();
+        let response = await fetch(url += "?" + query.toString());
+        let responseText = await response.text();
+        alert(responseText);
+        if (type == "/json") {
+            let responseJSON = JSON.parse(responseText);
+            console.log(responseJSON);
         }
-        else if (type == 1) {
-            url += "/receive" + "?" + query.toString();
-            let response = await fetch(url);
-            let responseJSON = await response.json();
-            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n\n";
-            console.log("Data Received.\nURL: " + url);
+        else if (type == "/html") {
+            responseDIV.innerHTML = responseText;
         }
-        else {
-            url += "/del" + "?" + query.toString();
-            let response = await fetch(url);
-            let responseString = await response.text();
-            console.log("Entry " + s.matrikel + " deleted.\nURL: " + url);
-            document.getElementById("response").innerHTML += responseString + "\n\n";
-        }
+        url = "https://gis-sose2021.herokuapp.com";
     }
     function updateInputs() {
         let name = document.getElementsByTagName("input")[0].value;
