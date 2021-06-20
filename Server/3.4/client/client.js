@@ -4,19 +4,20 @@ var Aufgabe3_4;
     let formData;
     let url = "https://gis-sose2021.herokuapp.com";
     let type = "";
+    let f;
     let submit = document.getElementById("submit");
     let feedback = document.getElementById("feedback");
     submit.addEventListener("click", submitText);
     feedback.addEventListener("click", giveFeedback);
     function submitText() {
         // console.log("erfolgt"); 
-        type = "/json";
+        type = "/send";
         updateInputs();
         handleRequest();
     }
     function giveFeedback() {
         // console.log("piupiu");
-        type = "/html";
+        type = "/receive";
         handleRequest();
     }
     async function handleRequest() {
@@ -27,13 +28,16 @@ var Aufgabe3_4;
         //url += "?" + query.toString();
         let response = await fetch(url += "?" + query.toString());
         let responseText = await response.text();
-        alert(responseText);
-        if (type == "/json") {
-            let responseJSON = JSON.parse(responseText);
-            console.log(responseJSON);
+        console.log(responseText);
+        if (type == "/send") {
+            console.log("Data Sent", f);
+            console.log("URL:", url);
+            document.getElementById("response").innerHTML += responseText + "\n";
         }
-        else if (type == "/html") {
-            responseDIV.innerHTML = responseText;
+        else if (type == "/recieve") {
+            let responseJSON = await response.json();
+            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
+            console.log("Data Received.\n URL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";
     }
@@ -42,7 +46,7 @@ var Aufgabe3_4;
         let lastname = document.getElementsByTagName("input")[1].value;
         let registration = parseInt(document.getElementsByTagName("input")[2].value);
         let text = document.getElementsByTagName("input")[3].value;
-        s = { name, lastname, registration, text };
+        f = { name, lastname, registration, text };
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=client.js.map

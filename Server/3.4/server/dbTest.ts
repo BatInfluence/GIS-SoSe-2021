@@ -4,17 +4,16 @@ import * as Url from "url";
 
 export namespace Aufgabe3_4 {
 
-  interface Student {
+  export interface Feedback {
     name: string;
     lastname: string;
     registration: number;
-    text: string;
   }
 
   startServer();
   async function startServer(): Promise<void> {
     {
-      await connectToDB("mongodb+srv://new-user1:<password>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+      await connectToDB("mongodb+srv://new-user1:<piupiu123>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
       console.log("Starting server");
 
       let port: number = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
@@ -61,30 +60,35 @@ export namespace Aufgabe3_4 {
 
       let students: Mongo.Collection = mongoClient.db("Test").collection("Student");
 
+      let cursor: Mongo.Cursor = students.find();
+      await cursor.toArray();
+      
       // let s: Student = {name: "Max Mustermann", matrikel: 666};
       // students.insertOne(s);
     }
 
-    async function submitText(s: Student): Promise<string> {
+    /*async function submitText(s: Student): Promise<string> {
+      let students: Mongo.Collection = await connectToDB();
       let output: string = "";
+
       if (s.registration + "" == "NaN") {
-        output = "Die Matrikelnummer ist ungültig.";
-      } else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+        output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
+      }
+      else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
         output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
-      } else {
+      }
+      else {
         students.insertOne(s);
-        output = "StudentIn '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+        output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
       }
       return output;
     }
-
-    async function giveFeedback(): Promise<Student[]> {
-      let students: Mongo.Collection = await connectToDB();
-      let cursor: Mongo.Cursor = students.find();
-      let result: Student[] = await cursor.toArray();
-      return result;
-    }
+*/
+    //async function giveFeedback(): Promise<Student[]> {
+      //let students: Mongo.Collection = await connectToDB();
+    //}
   }
+}
   /*
 let cursor: Mongo.Cursor = students.find();
 let result: Student[] = await cursor.toArray();

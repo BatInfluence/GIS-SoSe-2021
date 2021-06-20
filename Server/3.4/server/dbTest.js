@@ -9,7 +9,7 @@ var Aufgabe3_4;
     startServer();
     async function startServer() {
         {
-            await connectToDB("mongodb+srv://new-user1:<password>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+            await connectToDB("mongodb+srv://new-user1:<piupiu123>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
             console.log("Starting server");
             let port = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
             if (!port) //Wenn Port nicht geöffnet werden kann wird / geöffnet
@@ -46,47 +46,32 @@ var Aufgabe3_4;
             let mongoClient = new Mongo.MongoClient(_url, options);
             await mongoClient.connect();
             let students = mongoClient.db("Test").collection("Student");
+            let cursor = students.find();
+            await cursor.toArray();
             // let s: Student = {name: "Max Mustermann", matrikel: 666};
             // students.insertOne(s);
         }
-        async function submitText(s) {
-            let output = "";
-            if (s.registration + "" == "NaN") {
-                output = "Die Matrikelnummer ist ungültig.";
-            }
-            else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
-                output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
-            }
-            else {
-                students.insertOne(s);
-                output = "StudentIn '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
-            }
-            return output;
+        /*async function submitText(s: Student): Promise<string> {
+          let students: Mongo.Collection = await connectToDB();
+          let output: string = "";
+    
+          if (s.registration + "" == "NaN") {
+            output = "Hast dich wohl vertippt. Macht nichts, try again! :3";
+          }
+          else if (await students.countDocuments({ "Matrikelnummer": s.registration }) != 0) {
+            output = "Student*in mit dieser Matrikelnummer existiert bereits, du Knecht!!";
+          }
+          else {
+            students.insertOne(s);
+            output = "Feedback von '" + s.name + "' (" + s.registration + ") " + "hinzugefügt.";
+          }
+          return output;
         }
-        async function giveFeedback() {
-            let students = await connectToDB();
-            let cursor = students.find();
-            let result = await cursor.toArray();
-            return result;
-        }
+    */
+        //async function giveFeedback(): Promise<Student[]> {
+        //let students: Mongo.Collection = await connectToDB();
+        //}
     }
-    /*
-  let cursor: Mongo.Cursor = students.find();
-  let result: Student[] = await cursor.toArray();
-  console.log(result);
-  
-  let s: Student = await students.findOne({ matrikel: 123456 });
-  console.log(s);
-  students.deleteOne({ matrikel: 666 });
-  }
-  
-  connectToDB("mongodb://localhost:27017");
-  
-  interface Student {
-  name: string;
-  matrikel: number;
-  }
-  */ 
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 /*
 let cursor: Mongo.Cursor = students.find();

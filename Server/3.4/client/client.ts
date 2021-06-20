@@ -2,6 +2,8 @@ namespace Aufgabe3_4 {
     let formData: FormData;
     let url: string = "https://gis-sose2021.herokuapp.com";
     let type: string = "";
+    let f: Feedback;
+
 
     interface Feedback {
         name: string;
@@ -18,7 +20,7 @@ namespace Aufgabe3_4 {
 
     function submitText(): void {
         // console.log("erfolgt"); 
-        type = "/json";
+        type = "/send";
         updateInputs();
         handleRequest();
     }
@@ -26,7 +28,7 @@ namespace Aufgabe3_4 {
 
     function giveFeedback(): void {
         // console.log("piupiu");
-        type = "/html";
+        type = "/receive";
         handleRequest();
     }
 
@@ -39,14 +41,17 @@ namespace Aufgabe3_4 {
         let response: Response = await fetch(url += "?" + query.toString());
         let responseText: string = await response.text();
 
-        alert(responseText);
+        console.log(responseText);
 
-        if (type == "/json") {
-            let responseJSON: JSON = JSON.parse(responseText);
-            console.log(responseJSON);
+        if (type == "/send") {
+            console.log("Data Sent", f);
+            console.log("URL:", url);
+            document.getElementById("response").innerHTML += responseText + "\n";
         }
-        else if (type == "/html") {
-            responseDIV.innerHTML = responseText;
+        else if (type == "/recieve") {
+            let responseJSON: Feedback = await response.json();
+            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
+            console.log("Data Received.\n URL: " + url);
         }
         url = "https://gis-sose2021.herokuapp.com";
     }
@@ -56,7 +61,7 @@ namespace Aufgabe3_4 {
         let lastname: string = document.getElementsByTagName("input")[1].value;
         let registration: number = parseInt(document.getElementsByTagName("input")[2].value);
         let text: string = document.getElementsByTagName("input")[3].value;
-        s = { name, lastname, registration, text };
+        f = { name, lastname, registration, text };
     }
 
 
