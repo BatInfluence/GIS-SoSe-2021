@@ -30,6 +30,7 @@ namespace Aufgabe3_4 {
     }
 
     async function handleRequest(type: number): Promise<void> {
+        // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>FormData);
         if (type == 0) {
             url += "/send" + "?" + query.toString();
@@ -37,14 +38,14 @@ namespace Aufgabe3_4 {
             let responseString: string = await response.text();
             console.log("Data Sent", f);
             console.log("URL:", url);
-            document.getElementById("output").innerHTML += responseString + "\n\n";
+            document.getElementById("output").innerHTML += responseString + "\n";
         } else if (type == 1) {
             url += "/receive" + "?" + query.toString();
             let response: Response = await fetch(url);
             let responseJSON: Feedback = await response.json();
-            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n\n";
-            console.log("Data Received.\nURL: " + url);
+            document.getElementById("response").innerHTML += JSON.stringify(responseJSON) + "\n";
+            console.log("Data Received.\n URL: " + url);
         }
-        url = "https://gis-sose2021.herokuapp.com";
+       // url = "https://gis-sose2021.herokuapp.com";
     }
 }
