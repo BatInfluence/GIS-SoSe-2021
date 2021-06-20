@@ -4,7 +4,7 @@ import * as Url from "url";
 
 export namespace Aufgabe3_4 {
   let f: Feedback;
-  let _URLmongo: string = "mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  let _URLmongo: string = "mongodb+srv://new-user1:<password>>@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
   interface Feedback {
     name: string;
