@@ -17,6 +17,7 @@ export namespace Aufgabe3_4 {
   async function startServer(): Promise<void> {
     console.log("Starting server");
 
+    await connectToDB();
     let port: number = Number(process.env.PORT); //processenvPORT → liefert Informationen zum Port
     if (!port) //Wenn Port nicht geöffnet werden kann wird / geöffnet
       port = 8100; //Kommen auf unsere HerokuSeite mit dem /
@@ -56,7 +57,7 @@ export namespace Aufgabe3_4 {
   async function connectToDB(): Promise<Mongo.Collection> {
     let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_URLmongo, { useNewUrlParser: true, useUnifiedTopology: true });
     await mongoClient.connect();
-    let students: Mongo.Collection = mongoClient.db("Test").collection("Students");
+    let students: Mongo.Collection = mongoClient.db("Test").collection("Student");
 
     /* console.log("Database connection", students != undefined);
      console.log("findAll");
