@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styleAlleRezepte.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/049e004e32.js" crossorigin="anonymous"></script>
+    <script src="client/client.js" defer></script>
+
+    <title>AlleRezepte</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-area">
+                <li>
+                    <a class="nav-home" href="AlleRezepte.html">Alle Rezepte</a>
+                </li>
+                <li>
+                    <a href="MeineRezepte.html">Meine Rezepte</a>
+                </li>
+                <li>
+                    <a href="MeineFavoriten.html">Meine Favoriten</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="container">
+        <!-- Start	Product details -->
+        <div class="product-details">
+
+            <!-- 	Product Name -->
+            <h1>Tiramisu-Cake</h1>
+
+            <!-- The most important information about the product -->
+            <p class="information">"Fancy taste without all the work. This cake is wonderful for a get together or just
+                a special occasion at home. Click on the Favorite-Button!"</p>
+            <!-- 		Control -->
+            <div class="control">
+                <!-- Start Button View -->
+                <button class="btn" id="meme">
+                    <!--favorites icon-->
+                    <span class="favorite"><i class="fas fa-heart" aria-hidden="true"></i></span>
+                    <span class="buy">Favorit</span>
+                </button>
+                <!-- End Button View -->
+            </div>
+        </div>
+        <!-- 	End	Product details   -->
+
+        <!-- 	Start product image & Information -->
+        <div class="product-image">
+            <img src="pictures/cake1.jpg" alt="Tiramisu-Cake">
+            <!-- 	product Information-->
+            <div class="info">
+                <h2>Die Zutaten</h2>
+                <ul>
+                    <li><input type="checkbox">2 Ei(er)</li>
+                    <li><input type="checkbox">75 g Zucker</li>
+                    <li><input type="checkbox">1 Vanillezucker</li>
+                    <li><input type="checkbox">1 Prise(n) Salz</li>
+                    <li><input type="checkbox">75 g Mehl</li>
+                    <li><input type="checkbox">25 g Speisestärke</li>
+                    <li><input type="checkbox">1 TL Backpulver</li>
+                    <li><input type="checkbox">1 EL Kakaopulver</li>
+                    <li><input type="checkbox">100 ml Milch</li>
+                    <li><input type="checkbox">1 EL Zucker</li>
+                    <li><input type="checkbox">75 ml Kaffee, gekochter (Espresso), warmer</li>
+                    <li><input type="checkbox">2 EL Amaretto</li>
+                    <li><input type="checkbox">250 g Mascarpone</li>
+                    <li><input type="checkbox">125 g Quark (Magerquark)</li>
+                    <li><input type="checkbox">50 g Zucker</li>
+                    <li><input type="checkbox">250 ml Schlagsahne</li>
+                    <li><input type="checkbox">1 Pck. Sahnesteif</li>
+                    <li><input type="checkbox">150 g Löffelbiskuits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container-reciepe">
+        <div class="reciepe-image">
+            <img src="pictures/cake2.jpg" alt="Reciepe">
+            <div class="nameReciepe">
+                <a href="#">Fruit-Cake</a>
+                <button type="button" class="btn-favorit" id="btn-favorit"> <i class="fas fa-heart" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="reciepe-image">
+            <img src="pictures/cake2.jpg" alt="Reciepe">
+            <div class="nameReciepe">
+                <a href="#">Fruit-Cake</a>
+                <button type="button" class="btn-favorit" id="btn-favorit"> <i class="fas fa-heart" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="reciepe-image">
+            <img src="pictures/cake2.jpg" alt="Reciepe">
+            <div class="nameReciepe">
+                <a href="#">Fruit-Cake</a>
+                <button type="button" class="btn-favorit" id="btn-favorit"> <i class="fas fa-heart" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

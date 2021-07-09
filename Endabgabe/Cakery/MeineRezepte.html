@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styleMeineRezepte.css" rel="stylesheet">
+    <script src="client/client.js" defer></script>
+    <script src="https://kit.fontawesome.com/049e004e32.js" crossorigin="anonymous"></script>
+    <title>Meine Rezepte</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-area">
+                <li>
+                    <a href="AlleRezepte.html">Alle Rezepte</a>
+                </li>
+                <li>
+                    <a class="nav-ue" href="MeineRezepte.html">Meine Rezepte</a>
+                </li>
+                <li>
+                    <a href="MeineFavoriten.html">Meine Favoriten</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Erstellen Sie ein neues Rezept:</h1>
+    <form class="formular" id="formular">
+        <p> Zutaten: </p>
+            <div>
+                <input type="text" name="erstesBeispiel" id="zweitesBeispiel" placeholder="z.B.: 300g Mehl">
+            </div>
+            <div>
+                <input type="text" name="zweitesBeispiel" id="zweitesBeispiel" placeholder="z.B.: 40g Zucker">
+            </div>
+        <div id="divZutat"></div>
+        <!-- Soll weiteres Textfeld für neue Zutat öffnen -->
+        <a href="#" class="btn-newZutat" type="button" id="btn-newZutat" name="newZutat"> + </a>
+        <!-- <button id="btn-newZutat">Click</button> -->
+
+        <div id="zubereitung">
+            <textarea name="zubereitung" id="zubereitung"
+                placeholder="Schreiben Sie hier die Zubereitungschritte hinein!" cols="150" rows="20"></textarea>
+        </div>
+
+        <div id="btn-hochladen">
+            <button type="button" id="btn-hochladen">Hochladen</button>
+        </div>
+    </form>
+    <h1> Meine Rezepte: </h1>
+    <div id="meineRezepte"></div>
+    <div class="container-reciepe">
+        <div class="reciepe-image">
+            <img src="pictures/cake2.jpg" alt="Reciepe">
+            <div class="nameReciepe">
+                <a href="#">Fruit-Cake</a>
+                <button type="button" class="btn-favorit" id="btn-favorit"> <i class="fas fa-heart" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
