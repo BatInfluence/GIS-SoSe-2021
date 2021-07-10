@@ -38,6 +38,8 @@ header {
     transition: .2s;
     color: rgb(255, 255, 255);
     margin-left: 200px;
+    text-decoration: none;
+    
 }
 
 .nav-area a:hover {
@@ -54,6 +56,22 @@ header {
 
 .nav-ue {
     color: #fb2525;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
 }
 
 /* fonts  */
@@ -165,17 +183,10 @@ header {
     margin: 0;
 }
 
-/* shopping cart icon */
-
-.btn .price, .favorite {
+.btn .favorite {
     background: #333;
     border: 0;
     margin: 0;
-}
-
-.btn .price {
-    transform: translateX(-10%);
-    padding-right: 15px;
 }
 
 /* the Icon */
@@ -194,10 +205,6 @@ header {
 .btn .buy {
     z-index: 3;
     font-weight: bolder;
-}
-
-.btn:hover .price {
-    transform: translateX(-110%);
 }
 
 .btn:hover .favorite {
@@ -274,20 +281,22 @@ header {
     width: 100%;
 }
 
-div.nameReciepe {
+.nameReciepe {
     text-align: center;
     padding: 10px 20px;
 }
 
-
 .container-reciepe {
-    justify-content: space-between;
+    justify-content: space-evenly;
     display: flex;
     align-items: center;
+    padding: 7rem;
+    flex-wrap: ;
 }
 
 .reciepe-image {
     display: flex;
+    margin: 2rem;
     align-items: center;
     flex-flow: column;
     position: relative;
