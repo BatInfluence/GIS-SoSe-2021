@@ -441,6 +441,7 @@ p {
         width: 400px;
         margin-right: 10rem;
     }
+
     .container-reciepe {
         justify-content: space-evenly;
         flex-flow: initial;
@@ -448,6 +449,8 @@ p {
         align-items: center;
         padding: 2rem;
         margin-right: 2rem;
+        height: 200px;
+        width: 1000px;
     }
     .reciepe-image {
         display: flex;
