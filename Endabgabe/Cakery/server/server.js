@@ -8,7 +8,7 @@ var Endabgabe;
 (function (Endabgabe) {
     let u;
     let r;
-    let _URLmongo = "mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _URLmongo = "https://mongodbnetbrowser.herokuapp.com/?u=new-user1&p=piupiu123&a=gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     startServer();
     async function startServer() {
         console.log("Starting server");

@@ -5,7 +5,7 @@ import * as Url from "url";
 export namespace Endabgabe {
   let u: User;
   let r: Receipe;
-  let _URLmongo: string = "mongodb+srv://new-user1:piupiu123@gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  let _URLmongo: string = "https://mongodbnetbrowser.herokuapp.com/?u=new-user1&p=piupiu123&a=gis2021.d2dey.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
   export interface User {
     name: string;
