@@ -14,7 +14,10 @@ namespace Abgabe {
     async function handleRequestShowReciepeWindow(): Promise<void> {
         window.open("RezeptAnzeige.html");
         //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
-        
-
+    }
+    
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack(): void {
+        window.open("MeineRezepte.html");
     }
 }

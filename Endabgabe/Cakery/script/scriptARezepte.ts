@@ -42,6 +42,13 @@ namespace Abgabe {
         //WIE LADE ICH DA JETZT DIE JEWEILIGEN REZEPTE REIN??! Das muss ja innerhalb der server.ts Datei gemacht werden, aber WIE? 
 
     }
+
+
+
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack(): void {
+        window.open("AlleRezepte.html");
+    }
 }
 
 

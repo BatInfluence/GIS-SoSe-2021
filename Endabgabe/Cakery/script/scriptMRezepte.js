@@ -59,5 +59,9 @@ var Abgabe;
         //     const element = array[index];
         // }
     }
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack() {
+        window.open("MeineRezepte.html");
+    }
 })(Abgabe || (Abgabe = {}));
 //# sourceMappingURL=scriptMRezepte.js.map

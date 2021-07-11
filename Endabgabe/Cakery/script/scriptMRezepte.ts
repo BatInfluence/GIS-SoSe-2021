@@ -76,4 +76,13 @@ namespace Abgabe {
 
         // }
     }
+
+
+
+
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack(): void {
+        window.open("MeineRezepte.html");
+    }
+
 }

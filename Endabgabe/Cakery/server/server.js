@@ -26,9 +26,9 @@ var Endabgabe;
         let mongoClient = new Mongo.MongoClient(_URLmongo, { useNewUrlParser: true, useUnifiedTopology: true });
         await mongoClient.connect();
         let user = mongoClient.db("Cakery").collection("User");
+        let receipe = mongoClient.db("Cakery").collection("Receipe");
         return user;
-        let receipe = mongoClient.db("Cakery").collection("Receipe"); //HÄ?
-        return receipe;
+        return receipe; // :D
     }
     function handleListen() {
         console.log("Listening");
@@ -46,7 +46,7 @@ var Endabgabe;
                 _response.write(response + "\n");
             }
             if (url.pathname == "/registration") {
-                console.log("---SIGNUP-REQUEST---");
+                _response.write("Ihr Account wurde erstellt.");
                 let response = await registrationCheck(u);
                 _response.write(JSON.stringify(response) + "\n");
             }
@@ -64,9 +64,10 @@ var Endabgabe;
             //REZEPTE ANZEIGEN
             if (url.pathname == "/meineRezepte") {
                 console.log("---SHOW RECIPE---");
-                let cursor = receipe.findAll(); //Das funktioniert iwie nicht → siehe Zeile 52
-                let result = ; //soll auf das favoriten- Rezept-Array des Useres zugreifen; muss dann dort reingeladen werden
-                _response.write(JSON.stringify(result));
+                let search = receipe.find({ "user": url.query.user }); //Das funktioniert iwie nicht → siehe Zeile 52
+                let result = await search.toArray();
+                ; //soll auf das favoriten- Rezept-Array des Useres zugreifen; muss dann dort reingeladen werden
+                _response.write(JSON.stringify(result)); //Muss zu string transformiert werden
             }
             //REZEPT LÖSCHEN
             if (url.pathname == "/btn-delete") {
@@ -96,7 +97,7 @@ var Endabgabe;
         if (u.username + "" == "NaN") {
             output = "Der Username muss noch ausgefüllt werden! D:";
         }
-        else if (await user.countDocuments({ "Password": u.username }) != 0) {
+        else if (await user.countDocuments({ "Username": u.username }) != 0) {
             output = "Der Username existiert bereits... sei KREATIVER!! ";
         }
         return output;

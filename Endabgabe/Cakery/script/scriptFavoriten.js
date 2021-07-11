@@ -13,5 +13,9 @@ var Abgabe;
         window.open("RezeptAnzeige.html");
         //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
     }
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack() {
+        window.open("MeineRezepte.html");
+    }
 })(Abgabe || (Abgabe = {}));
 //# sourceMappingURL=scriptFavoriten.js.map

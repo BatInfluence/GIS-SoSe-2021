@@ -34,5 +34,9 @@ var Abgabe;
         //wenn Rezept-Name angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
         //WIE LADE ICH DA JETZT DIE JEWEILIGEN REZEPTE REIN??! Das muss ja innerhalb der server.ts Datei gemacht werden, aber WIE? 
     }
+    document.getElementById("btn-back").addEventListener("click", goBack);
+    function goBack() {
+        window.open("AlleRezepte.html");
+    }
 })(Abgabe || (Abgabe = {}));
 //# sourceMappingURL=scriptARezepte.js.map

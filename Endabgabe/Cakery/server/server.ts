@@ -48,9 +48,9 @@ export namespace Endabgabe {
     await mongoClient.connect();
 
     let user: Mongo.Collection = mongoClient.db("Cakery").collection("User");
+    let receipe: Mongo.Collection = mongoClient.db("Cakery").collection("Receipe");
     return user;
-    let receipe: Mongo.Collection = mongoClient.db("Cakery").collection("Receipe"); //HÄ?
-    return receipe;
+    return receipe; // :D
   }
 
 
@@ -77,7 +77,7 @@ export namespace Endabgabe {
       }
 
       if (url.pathname == "/registration") {
-        console.log("---SIGNUP-REQUEST---");
+        _response.write("Ihr Account wurde erstellt.");
         let response: string = await registrationCheck(u);
         _response.write(JSON.stringify(response) + "\n");
       }
@@ -100,9 +100,9 @@ export namespace Endabgabe {
       //REZEPTE ANZEIGEN
       if (url.pathname == "/meineRezepte") {
         console.log("---SHOW RECIPE---");
-        let cursor: Mongo.Cursor = receipe.findAll(); //Das funktioniert iwie nicht → siehe Zeile 52
-        let result: Receipe[] = ; //soll auf das favoriten- Rezept-Array des Useres zugreifen; muss dann dort reingeladen werden
-        _response.write(JSON.stringify(result));
+        let search: Mongo.Cursor = receipe.find({ "user": url.query.user }); //Das funktioniert iwie nicht → siehe Zeile 52
+        let result: Receipe[] = await search.toArray();; //soll auf das favoriten- Rezept-Array des Useres zugreifen; muss dann dort reingeladen werden
+        _response.write(JSON.stringify(result)); //Muss zu string transformiert werden
       }
 
       //REZEPT LÖSCHEN
@@ -137,7 +137,7 @@ export namespace Endabgabe {
     if (u.username + "" == "NaN") {
       output = "Der Username muss noch ausgefüllt werden! D:";
     }
-    else if (await user.countDocuments({ "Password": u.username }) != 0) {
+    else if (await user.countDocuments({ "Username": u.username }) != 0) {
       output = "Der Username existiert bereits... sei KREATIVER!! ";
     }
     return output;
@@ -162,10 +162,11 @@ export namespace Endabgabe {
     return output;
   }
 
+  
   async function deleteCheck(u: User): Promise<string> {
     let user: Mongo.Collection = await connectToDB();
     let output: string = "";
-    user.deleteOne(u); 
+    user.deleteOne(u);
     output = "User mit Daten:'" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "wurde gelöscht.";
     return output;
   }
