@@ -24,16 +24,16 @@ var Abgabe;
         console.log("Rezepte werden angezeigt.");
         allleRezepte.innerHTML = responseText; //Die server antwort soll innerhalb dem HTML ausgegeben werden 
     }
-    //Rezepte werden angezeigt, nach click auf Name:
-    document.getElementById("#").addEventListener("click", showReciepeWindow);
-    function showReciepeWindow() {
-        handleRequestShowReciepeWindow();
-    }
-    async function handleRequestShowReciepeWindow() {
-        window.open();
-        for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
-            const element = array[index];
-        }
-    }
+    // //Rezepte werden angezeigt, nach click auf Name:
+    // document.getElementById("#").addEventListener("click", showReciepeWindow);
+    // function showReciepeWindow(): void {
+    //     handleRequestShowReciepeWindow();
+    // }
+    // async function handleRequestShowReciepeWindow(): Promise<void> {
+    //     window.open();
+    //     for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
+    //         const element = array[index];
+    //     }
+    // }
 })(Abgabe || (Abgabe = {}));
 //# sourceMappingURL=scriptARezepte.js.map

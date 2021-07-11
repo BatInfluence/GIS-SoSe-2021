@@ -30,20 +30,20 @@ namespace Abgabe {
 
     }
 
-    //Rezepte werden angezeigt, nach click auf Name:
-    document.getElementById("#").addEventListener("click", showReciepeWindow);
-    function showReciepeWindow(): void {
+    // //Rezepte werden angezeigt, nach click auf Name:
+    // document.getElementById("#").addEventListener("click", showReciepeWindow);
+    // function showReciepeWindow(): void {
 
-        handleRequestShowReciepeWindow();
-    }
+    //     handleRequestShowReciepeWindow();
+    // }
 
-    async function handleRequestShowReciepeWindow(): Promise<void> {
-        window.open();
-        for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
-            const element = array[index];
+    // async function handleRequestShowReciepeWindow(): Promise<void> {
+    //     window.open();
+    //     for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
+    //         const element = array[index];
 
-        }
-    }
+    //     }
+    // }
 
 
 

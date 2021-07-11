@@ -4,7 +4,6 @@ var Abgabe;
     //MeineRezepte
     let url = "https://gis-sose2021.herokuapp.com";
     let r;
-    let query;
     let meineRezepte = document.getElementById("meineRezepte"); //Ausgabefeld in "MeineRezepte"
     //Neues Zutatenfeld erstellen: Funktioniert yay
     document.getElementById("btn-newZutat").addEventListener("click", Zutat);
@@ -29,7 +28,7 @@ var Abgabe;
             let responseString = await response.text();
             console.log("Receipe Sent", r);
             console.log("URL:", url);
-            document.getElementById("meineRezepte").innerHTML += responseString + "\n"; //Anzeigen der Rezepte auf MeineRezepte:
+            meineRezepte.innerHTML += responseString + "\n"; //Anzeigen der Rezepte auf MeineRezepte:
         }
     }
 })(Abgabe || (Abgabe = {}));

@@ -2,7 +2,6 @@ namespace Abgabe {
     //MeineRezepte
     let url: string = "https://gis-sose2021.herokuapp.com";
     let r: Receipe;
-    let query: URLSearchParams;
     let meineRezepte: HTMLDivElement = <HTMLDivElement>document.getElementById("meineRezepte"); //Ausgabefeld in "MeineRezepte"
 
     //Neues Zutatenfeld erstellen: Funktioniert yay
@@ -39,7 +38,7 @@ namespace Abgabe {
             let responseString: string = await response.text();
             console.log("Receipe Sent", r);
             console.log("URL:", url);
-            document.getElementById("meineRezepte").innerHTML += responseString + "\n"; //Anzeigen der Rezepte auf MeineRezepte:
+            meineRezepte.innerHTML += responseString + "\n"; //Anzeigen der Rezepte auf MeineRezepte:
         }
     }
 
