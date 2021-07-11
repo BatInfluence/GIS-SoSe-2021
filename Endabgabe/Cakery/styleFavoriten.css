@@ -101,3 +101,16 @@ div.nameReciepe {
 .fa-heart:hover {
     color: green;
 }
+
+.btn-delete {
+    font-size: 50px;
+    position: relative;
+    border: none;
+    width: 20px;
+    height: 60px;
+}
+
+.btn-delete:hover {
+    background-color: red;
+    cursor: pointer;
+}

@@ -22,17 +22,18 @@ namespace Abgabe {
         message: string;
         error: string;
     }
+    
     async function clickLogin(): Promise<void> {
         handleRequest(0);
 
     }
+
     async function clickRegistration(): Promise<void> {
         handleRequest(1);
     }
 
     async function clickDelete(): Promise<void> {
         handleRequest(2);
-
     }
 
     async function handleRequest(type: number): Promise<void> {
@@ -53,7 +54,8 @@ namespace Abgabe {
                 console.log("ALERT: Woops, maybe try another passwort or username!");
             }
             else if (loginAnswer.message != null) {
-                window.open("../AlleRezepte.html");
+                window.alert("Du hast dich erfolgreich eingeloggt!");
+                window.open("AlleRezepte.html");
                 meineRezepte.innerHTML = loginAnswer.message;
             }
         }

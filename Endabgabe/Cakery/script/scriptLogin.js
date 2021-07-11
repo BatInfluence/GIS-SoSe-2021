@@ -34,7 +34,8 @@ var Abgabe;
                 console.log("ALERT: Woops, maybe try another passwort or username!");
             }
             else if (loginAnswer.message != null) {
-                window.open("../AlleRezepte.html");
+                window.alert("Du hast dich erfolgreich eingeloggt!");
+                window.open("AlleRezepte.html");
                 meineRezepte.innerHTML = loginAnswer.message;
             }
         }

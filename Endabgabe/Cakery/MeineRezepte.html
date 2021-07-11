@@ -30,6 +30,10 @@
 
     <h1>Erstellen Sie ein neues Rezept:</h1>
     <form class="formular" id="formular">
+        <p> Name: </p>
+        <div>
+            <input type="text" name="Name" id="rezeptname" placeholder="z.B.: Tiramisu-Torte">
+        </div>
         <p> Zutaten: </p>
             <div>
                 <input type="text" name="erstesBeispiel" id="zweitesBeispiel" placeholder="z.B.: 300g Mehl">
@@ -59,6 +63,7 @@
             <div class="nameReciepe">
                 <a href="#">Fruit-Cake</a>
                 <button type="button" class="btn-favorit" id="btn-favorit"> <i class="fas fa-heart" aria-hidden="true"></i></button>
+                <button type="button" class="btn-delete" id="btn-delete"> - </button>
             </div>
         </div>
     </div>

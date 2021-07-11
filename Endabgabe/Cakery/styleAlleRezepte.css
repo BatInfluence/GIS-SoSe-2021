@@ -39,7 +39,6 @@ header {
     color: rgb(255, 255, 255);
     margin-left: 200px;
     text-decoration: none;
-    
 }
 
 .nav-area a:hover {
@@ -291,7 +290,6 @@ p {
     display: flex;
     align-items: center;
     padding: 7rem;
-    flex-wrap: ;
 }
 
 .reciepe-image {
@@ -323,4 +321,17 @@ p {
 
 .fa-heart:hover {
     color: green;
+}
+
+.btn-delete {
+    font-size: 50px;
+    position: relative;
+    border: none;
+    width: 20px;
+    height: 60px;
+}
+
+.btn-delete:hover {
+    background-color: red;
+    cursor: pointer;
 }
