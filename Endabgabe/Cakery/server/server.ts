@@ -12,6 +12,7 @@ export namespace Endabgabe {
     lastname: string;
     username: string;
     password: string;
+    favoriten: Receipe[];
   }
 
   export interface Login {
@@ -48,7 +49,7 @@ export namespace Endabgabe {
 
     let user: Mongo.Collection = mongoClient.db("Cakery").collection("User");
     return user;
-    let receipe: Mongo.Collection = mongoClient.db("Cakery").collection("Receipe");
+    let receipe: Mongo.Collection = mongoClient.db("Cakery").collection("Receipe"); //HÄ?
     return receipe;
   }
 
@@ -93,30 +94,33 @@ export namespace Endabgabe {
       if (url.pathname == "/btn-hochladen") {
         console.log("---SAVE RECIPE---");
         await getReciepe(r);
-        _response.write("Ihr Rezept wurde gespeichert!");
+        _response.write("Dein Rezept wurde gespeichert!");
       }
 
       //REZEPTE ANZEIGEN
       if (url.pathname == "/meineRezepte") {
         console.log("---SHOW RECIPE---");
-        let result: Receipe;
+        let cursor: Mongo.Cursor = receipe.findAll(); //Das funktioniert iwie nicht → siehe Zeile 52
+        let result: Receipe[] = ; //soll auf das favoriten- Rezept-Array des Useres zugreifen; muss dann dort reingeladen werden
         _response.write(JSON.stringify(result));
       }
 
       //REZEPT LÖSCHEN
       if (url.pathname == "/btn-delete") {
         console.log("---DELETE RECIPE---");
-        let receipe: Mongo.Collection;
         receipe.deleteOne({ "meineRezepte": "" }); //Rezept soll aus Datenbank gelöscht werden → MeineRezepte.html Befehl siehe: https://docs.mongodb.com/guides/server/delete/
-        _response.write("Rezept wurde gelöscht!");
+        _response.write("Dein Rezept wurde gelöscht!");
       }
 
       //REZEPT FAVORISIEREN
       if (url.pathname == "/btn-favorit") {
         console.log("---RECIPE FAVORITE---");
+        let favorisieren: Receipe = receipe.findOne({ "": "" });
+        _response.write("Rezept wurde favorisiert!");
       }
     }
     _response.end();
+    console.log("---SERVER REQUEST SENT---");
   }
 
 
@@ -162,7 +166,8 @@ export namespace Endabgabe {
     let user: Mongo.Collection = await connectToDB();
     let output: string = "";
     user.deleteOne(u); 
-    return output = "User mit Daten:'" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "wurde gelöscht.";
+    output = "User mit Daten:'" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "wurde gelöscht.";
+    return output;
   }
 
 

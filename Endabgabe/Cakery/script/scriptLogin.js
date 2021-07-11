@@ -5,8 +5,8 @@ var Abgabe;
     let u;
     let query;
     let meineRezepte = document.getElementById("meineRezepte"); //Ausgabefeld in "MeineRezepte"
-    document.getElementById("registration").addEventListener("click", clickRegistration);
     document.getElementById("submit").addEventListener("click", clickLogin);
+    document.getElementById("registration").addEventListener("click", clickRegistration);
     document.getElementById("delete").addEventListener("click", clickDelete);
     async function clickLogin() {
         handleRequest(0);
