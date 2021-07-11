@@ -11,13 +11,13 @@ namespace Abgabe {
         newZ.innerText = "Neue Zutat...";
         var vorhandenesObjekt: HTMLElement = document.getElementById("divZutat");
         vorhandenesObjekt.appendChild(newZ);
-    }
-
+    }  
 
     //Hochladen von neuem Rezept:
     document.getElementById("btn-hochladen").addEventListener("click", hochladen);
 
     export interface Receipe {
+        rezeptname: string;
         erstesBeispiel: string;
         zweitesBeispiel: string;
         newZ: string;

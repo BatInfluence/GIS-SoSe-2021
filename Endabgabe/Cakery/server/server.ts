@@ -95,29 +95,32 @@ export namespace Endabgabe {
         await getReciepe(r);
         _response.write("Ihr Rezept wurde gespeichert!");
       }
-
+      
       //REZEPTE ANZEIGEN
       if (url.pathname == "/meineRezepte") {
         console.log("---SHOW RECIPE---");
         let result: Receipe;
         _response.write(JSON.stringify(result));
       }
-
+      
       //REZEPT LÖSCHEN
       if (url.pathname == "/btn-delete") {
         console.log("---DELETE RECIPE---");
-        let receipe: Mongo.Collection = await connectToDB();
-
-        receipe.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
+        let receipe: Mongo.Collection;
+        receipe.deleteOne({ "name": new Mongo.ObjectId(url.query.name.toString()) });
         _response.write("Rezept wurde gelöscht!");
+      }
+
+      //REZEPT FAVORISIEREN
+      if(url.pathname == "/btn-favorit"){
+        console.log("---RECIPE FAVORITE---");
+
       }
     }
     _response.end();
   }
-
-
-
-
+  
+  
   async function loginCheck(u: User): Promise<string> {
     let user: Mongo.Collection = await connectToDB();
     let output: string = "";
@@ -136,6 +139,7 @@ export namespace Endabgabe {
     }
     return output;
   }
+
 
 
   async function registrationCheck(u: User): Promise<string> {

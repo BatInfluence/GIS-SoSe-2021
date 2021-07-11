@@ -307,7 +307,7 @@ p {
     align-items: center;
     flex-flow: column;
     position: relative;
-    border: 2px solid red;
+    border: 2px solid #313131;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 254px;
@@ -370,6 +370,7 @@ p {
         color: rgb(255, 255, 255);
         margin-left: 8px;
         text-decoration: none;
+        font-size: 12px;
     }
     p {
         font-size: 20px;
@@ -385,7 +386,7 @@ p {
         justify-content: space-evenly;
         display: flex;
         align-items: center;
-        padding: 2rem;
+        padding: 7rem;
         margin-right: 8rem;
     }
     .reciepe-image {
@@ -394,7 +395,7 @@ p {
         align-items: center;
         flex-flow: column;
         position: relative;
-        border: 2px solid red;
+        border: 2px solid #313131;
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         width: 254px;
@@ -457,7 +458,7 @@ p {
         margin: 2rem;
         align-items: center;
         flex-flow: initial;
-        border: 2px solid red;
+        border: 2px solid #313131;
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         width: 254px;

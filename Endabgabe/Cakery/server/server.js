@@ -70,9 +70,13 @@ var Endabgabe;
             //REZEPT LÖSCHEN
             if (url.pathname == "/btn-delete") {
                 console.log("---DELETE RECIPE---");
-                let receipe = await connectToDB();
-                receipe.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
+                let receipe;
+                receipe.deleteOne({ "name": new Mongo.ObjectId(url.query.name.toString()) });
                 _response.write("Rezept wurde gelöscht!");
+            }
+            //REZEPT FAVORISIEREN
+            if (url.pathname == "/btn-favorit") {
+                console.log("---RECIPE FAVORITE---");
             }
         }
         _response.end();
