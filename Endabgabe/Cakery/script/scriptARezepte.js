@@ -18,22 +18,21 @@ var Abgabe;
     async function handleRequestShowReciepe() {
         window.onload = handleRequestShowReciepe; //window.onload → Rezepte werden sofort angezeigt 
         // tslint:disable-next-line: no-any
-        url += "/container-reciepe" + "?" + query.toString(); //Url in String umwandeln
-        let response = await fetch(url); //auf url warten
-        let responseText = await response.text(); //json okject erstellen
+        url += "/container-reciepe" + "?" + query.toString(); //Url wird in String umgewandelt
+        let response = await fetch(url); //Warten auf Url
+        let responseText = await response.text();
         console.log("Rezepte werden angezeigt.");
-        allleRezepte.innerHTML = responseText; //Die server antwort soll innerhalb dem HTML ausgegeben werden 
+        allleRezepte.innerHTML = responseText; //Serverantwort innehralb der HTML
     }
-    // //Rezepte werden angezeigt, nach click auf Name:
-    // document.getElementById("#").addEventListener("click", showReciepeWindow);
-    // function showReciepeWindow(): void {
-    //     handleRequestShowReciepeWindow();
-    // }
-    // async function handleRequestShowReciepeWindow(): Promise<void> {
-    //     window.open();
-    //     for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
-    //         const element = array[index];
-    //     }
-    // }
+    //Rezepte werden angezeigt, nach click auf Name:
+    document.getElementById("#").addEventListener("click", showReciepeWindow);
+    function showReciepeWindow() {
+        handleRequestShowReciepeWindow();
+    }
+    async function handleRequestShowReciepeWindow() {
+        window.open("RezeptAnzeige.html");
+        //wenn Rezept-Name angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
+        //WIE LADE ICH DA JETZT DIE JEWEILIGEN REZEPTE REIN??! Das muss ja innerhalb der server.ts Datei gemacht werden, aber WIE? 
+    }
 })(Abgabe || (Abgabe = {}));
 //# sourceMappingURL=scriptARezepte.js.map

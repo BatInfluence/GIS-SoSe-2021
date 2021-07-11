@@ -50,11 +50,11 @@ var Endabgabe;
                 let response = await registrationCheck(u);
                 _response.write(JSON.stringify(response) + "\n");
             }
-            // if (url.pathname == "/delete") {
-            //   console.log("---DELETE---");
-            //   let response: string = await deleteCheck(u);
-            //   _response.write(response + "\n");
-            // }
+            if (url.pathname == "/delete") {
+                console.log("---DELETE---");
+                let response = await deleteCheck(u);
+                _response.write(response + "\n");
+            }
             //REZEPT SPEICHERN → MeineRezepte.html
             if (url.pathname == "/btn-hochladen") {
                 console.log("---SAVE RECIPE---");
@@ -71,7 +71,7 @@ var Endabgabe;
             if (url.pathname == "/btn-delete") {
                 console.log("---DELETE RECIPE---");
                 let receipe;
-                receipe.deleteOne({ "name": new Mongo.ObjectId(url.query.name.toString()) });
+                receipe.deleteOne({ "meineRezepte": "" }); //Rezept soll aus Datenbank gelöscht werden → MeineRezepte.html Befehl siehe: https://docs.mongodb.com/guides/server/delete/
                 _response.write("Rezept wurde gelöscht!");
             }
             //REZEPT FAVORISIEREN
@@ -88,13 +88,13 @@ var Endabgabe;
             output = "Das Passwort fehlt oder ist falsch! :3";
         }
         else if (await user.countDocuments({ "Password": u.password }) != 0) {
-            output = "Student*in mit diesem Passwort existiert bereits, du Knecht!!";
+            output = "User*in mit diesem Passwort existiert bereits, du Knecht!!";
         }
         if (u.username + "" == "NaN") {
             output = "Der Username muss noch ausgefüllt werden! D:";
         }
         else if (await user.countDocuments({ "Password": u.username }) != 0) {
-            output = "Der Username existiert bereits... sei KREATIVER! ";
+            output = "Der Username existiert bereits... sei KREATIVER!! ";
         }
         return output;
     }
@@ -105,18 +105,20 @@ var Endabgabe;
             output = "Das Passwort fehlt! :3";
         }
         else if (await user.countDocuments({ "Password": u.password }) != 0) {
-            output = "Student*in mit diesem Passwort existiert bereits, du Knecht!!";
+            output = "User*in mit diesem Passwort existiert bereits, du Knecht!!";
         }
         else {
             user.insertOne(u);
-            output = "User mit von '" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "hinzugefügt.";
+            output = "User mit '" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "hinzugefügt.";
         }
         return output;
     }
-    // async function deleteCheck(u: User): Promise<string> {
-    //   let user: Mongo.Collection = await connectToDB();
-    //   let output: string = "";
-    // }
+    async function deleteCheck(u) {
+        let user = await connectToDB();
+        let output = "";
+        user.deleteOne(u);
+        return output = "User mit Daten:'" + u.lastname + "' (" + u.name + u.password + u.username + ") " + "wurde gelöscht.";
+    }
     async function getReciepe(r) {
         let receipe = await connectToDB();
         let output = "";

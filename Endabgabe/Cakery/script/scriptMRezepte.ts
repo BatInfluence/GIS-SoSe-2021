@@ -11,7 +11,7 @@ namespace Abgabe {
         newZ.innerText = "Neue Zutat...";
         var vorhandenesObjekt: HTMLElement = document.getElementById("divZutat");
         vorhandenesObjekt.appendChild(newZ);
-    }  
+    }
 
     //Hochladen von neuem Rezept:
     document.getElementById("btn-hochladen").addEventListener("click", hochladen);
@@ -42,4 +42,38 @@ namespace Abgabe {
         }
     }
 
+
+    //Rezept löschen & restliche Rezepte anzeigen:
+    document.getElementById("btn-delete").addEventListener("click", deleteReciepe);
+    function deleteReciepe(): void {
+        handleRequestDelete(0);
+    }
+    async function handleRequestDelete(type: number): Promise<void> {
+        let formData: FormData = new FormData(document.forms[0]);
+        // tslint:disable-next-line: no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        if (type == 0) {
+            url += "/btn-delete" + "?" + query.toString();
+            let response: Response = await fetch(url);
+            let responseString: string = await response.text();
+            console.log("Receipe Deleted", r);
+            meineRezepte.innerHTML += responseString + "\n"; //Anzeigen der Rezepte auf MeineRezepte
+        }
+    }
+
+
+    //Rezepte werden angezeigt, nach click auf Name:
+    document.getElementById("#").addEventListener("click", showReciepeWindow);
+    function showReciepeWindow(): void {
+
+        handleRequestShowReciepeWindow();
+    }
+
+    async function handleRequestShowReciepeWindow(): Promise<void> {
+        window.open("RezeptAnzeige.html");
+        // for (let index = 0; index < array.length; index++) { //wenn Rezept-Kachel angeklickt wird, soll sich neues Fenster mit Rezept öffnen; mit Zurück-Button
+        //     const element = array[index];
+
+        // }
+    }
 }

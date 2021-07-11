@@ -6,7 +6,6 @@
     font-family: sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web');
 body {
     background: #474648;
     background-attachment: fixed;
@@ -21,12 +20,13 @@ header {
     align-items: center;
     padding: 30px 70px;
     background-color: #313131;
-    position: sticky;
 }
 
 .nav-area {
+    position: sticky;
     list-style: none;
     text-decoration: white;
+    top: 0px;
 }
 
 .nav-area li {
@@ -442,7 +442,6 @@ p {
         width: 400px;
         margin-right: 10rem;
     }
-
     .container-reciepe {
         justify-content: space-evenly;
         flex-flow: initial;
@@ -466,14 +465,14 @@ p {
     .reciepe-image img {
         width: 150px;
     }
-    .nameReciepe{
+    .nameReciepe {
         padding: 2rem;
     }
-    a{
+    a {
         font-size: 15px;
         margin-right: 20px;
     }
-    .btn-favorit{
+    .btn-favorit {
         margin-left: -25px;
     }
 }
