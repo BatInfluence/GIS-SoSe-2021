@@ -46,10 +46,9 @@ export namespace Aufgabe3_4 {
         let response: string = await submitText(f);
         _response.write(response + "<br>");
       }
-      
       if (url.pathname == "/receive") {
         let response: Feedback[] = await giveFeedback();
-        _response.write(JSON.stringify(response) _response.write(JSON.stringify(response) + "<br>");
+        _response.write(JSON.stringify(response) + "<br>");
       }
       _response.end();
     }

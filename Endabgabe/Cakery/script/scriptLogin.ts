@@ -1,12 +1,9 @@
-import { ServerResponse } from "http";
-import { StringifyOptions } from "querystring";
-
 namespace Abgabe {
     let url: string = "https://gis-sose2021.herokuapp.com";
     let u: User;
     let query: URLSearchParams;
     let meineRezepte: HTMLDivElement = <HTMLDivElement>document.getElementById("meineRezepte"); //Ausgabefeld in "MeineRezepte"
-   
+
     document.getElementById("registration").addEventListener("click", clickRegistration);
     document.getElementById("submit").addEventListener("click", clickLogin);
     document.getElementById("delete").addEventListener("click", clickDelete);
@@ -22,7 +19,7 @@ namespace Abgabe {
         message: string;
         error: string;
     }
-    
+
     async function clickLogin(): Promise<void> {
         handleRequest(0);
 

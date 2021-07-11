@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var Abgabe;
 (function (Abgabe) {
     let url = "https://gis-sose2021.herokuapp.com";
