@@ -260,12 +260,3 @@ div.nameReciepe {
             margin-left: -25px;
         }
     }
-
-    .btn-back{
-        background-color: #5cbf2a;
-        cursor: pointer;
-    }
-    .btn-back:hover{
-        background-color: #4a9922;
-        
-    }
